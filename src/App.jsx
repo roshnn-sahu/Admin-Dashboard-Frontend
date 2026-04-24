@@ -5,12 +5,13 @@ import { Routes, Route, Link } from "react-router-dom";
 import { ToastContainer, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // Routes
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Service from "./pages/Service";
-import Testimonial from "./Components/Testimonial";
-import Portfolio from "./pages/Portfolio";
-import Contact from "./pages/Contact";
+import Home from "./home/pages/Home";
+import About from "./home/pages/About";
+import Service from "./home/pages/Service";
+import Testimonial from "./home/Components/Testimonial";
+import Portfolio from "./home/pages/Portfolio";
+import Contact from "./home/pages/Contact";
+import DynamicPage from "./Home/pages/dynamic-pages";
 
 //admin Routes
 import AdminDashboard from "./admin/AdminDashboard";
@@ -28,6 +29,7 @@ import ForgetPassword from "./admin/auth/ForgetPassword";
 import ManageCompany from "./admin/pages/ManageCompany";
 import UsersActivity from "./admin/pages/UsersActivity";
 import PageNotFound from "./admin/pages/PageNotFound";
+import Cms from "./admin/pages/CmsList";
 
 function App() {
   return (
@@ -54,13 +56,14 @@ function App() {
           <Route path="/testimonial" element={<Testimonial />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contact" element={<Contact />} />
-
+          <Route path="/pages/:slug" element={<DynamicPage />} />
           <Route path="*" element={<Home />} />
         </Route>
         {/* Admin routes */}
 
         <Route path="/admin/login" element={<Login />} />
         <Route path="/admin/forget-password" element={<ForgetPassword />} />
+
         <Route element={<AdminLayout />}>
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
@@ -73,8 +76,9 @@ function App() {
           <Route path="/admin/users-list" element={<UserList />} />
           <Route path="/admin/settings" element={<ManageCompany />} />
           <Route path="/admin/users-activity" element={<UsersActivity />} />
+          <Route path="/admin/website/cms" element={<Cms />} />
 
-          <Route path="/admin/*" element={<PageNotFound />} />
+          <Route path="admin/*" element={<PageNotFound />} />
         </Route>
       </Routes>
     </>

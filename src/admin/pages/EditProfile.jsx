@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
-import Spinner from "../../ui/Spinner";
+import Spinner from "../AdminComponents/ui/Spinner";
 import { toast } from "react-toastify";
 import { useRef } from "react";
-import { authApi } from "../../api/authApi";
+import { authApi } from "../api/authApi";
 
 const EditProfile = () => {
   const { userData, isLoading, checkAuth } = useAuth();
@@ -16,7 +16,7 @@ const EditProfile = () => {
   const [profilePreview, setProfilePreview] = useState(
     userData && userData.image != null
       ? import.meta.env.VITE_BACKEND_API + "/uploads/" + userData.image
-      : "/assets/img/profile/Default_pfp.png"
+      : "/assets/img/profile/Default_pfp.png",
   );
   const handleChange = (e) => {
     const { name, value } = e.target;

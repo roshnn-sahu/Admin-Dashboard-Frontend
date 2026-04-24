@@ -1,4 +1,4 @@
-import Spinner from "../ui/Spinner";
+import Spinner from "../admin/AdminComponents/ui/Spinner";
 
 
 export const ShowPhone = ({ mobile }) => {

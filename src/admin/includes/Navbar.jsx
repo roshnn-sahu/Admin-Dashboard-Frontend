@@ -2,6 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import logo from "/admin/assets/images/logo.png";
 import { Link, useNavigate } from "react-router-dom";
+import {
+  RiArrowDownDoubleLine,
+  RiArrowDownWideLine,
+  RiMenu2Line,
+} from "@remixicon/react";
 
 const navbar = () => {
   const navigate = useNavigate();
@@ -17,7 +22,7 @@ const navbar = () => {
             "Content-Type": "application/json",
           },
           credentials: "include",
-        }
+        },
       );
       if (res.ok) {
         const data = await res.json();
@@ -44,6 +49,7 @@ const navbar = () => {
           </div>
         </div>
         <div className="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+          {/* User Profile */}
           <ul className="navbar-nav mr-lg-2 profile-dropdown">
             <li className="nav-item nav-profile dropdown">
               <Link
@@ -71,6 +77,7 @@ const navbar = () => {
               >
                 <span className="nav-profile-name fs-5 fw-bold ml-2 p-0">
                   {userData ? userData.name : "User Name"}
+
                   <i className=" typcn typcn-arrow-sorted-down fw-normal align-self-start rotate-45 mx-0"></i>
                 </span>
                 <p className="ml-2 mb-0 p-0 text-dark ">
@@ -79,28 +86,29 @@ const navbar = () => {
                 </p>
               </div>
               <div
-                className="dropdown-menu dropdown-menu-right navbar-dropdown"
+                className="dropdown-menu dropdown-menu-right navbar-dropdown  "
                 aria-labelledby="profileDropdown"
               >
                 <Link to="/admin/profile" className="dropdown-item">
-                  <i className="typcn typcn-user text-primary"></i>
+                  <i className="typcn typcn-user text-theme-primary"></i>
                   Profile
                 </Link>
                 <Link to="/admin/edit/profile" className="dropdown-item">
-                  <i className="typcn typcn-pen text-primary"></i>
+                  <i className="typcn typcn-pen text-theme-primary"></i>
                   Edit Profile
                 </Link>
                 <Link to="/admin/change-password" className="dropdown-item">
-                  <i className="typcn typcn-key text-primary"></i>
+                  <i className="typcn typcn-key text-theme-primary"></i>
                   Change Password
                 </Link>
                 <Link className="dropdown-item" onClick={handleLogOut}>
-                  <i className="typcn typcn-eject text-primary"></i>
+                  <i className="typcn typcn-eject text-theme-primary"></i>
                   Logout
                 </Link>
               </div>
             </li>
           </ul>
+
           <ul className="navbar-nav navbar-nav-right">
             <li className="nav-item nav-date dropdown">
               <Link
@@ -249,13 +257,14 @@ const navbar = () => {
               </div>
             </li>
           </ul>
-          <button
-            className="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
+
+          <span
+            className="navbar-toggler navbar-toggler-right d-lg-none align-self-center border-0 outline-0"
             type="button"
             data-toggle="offcanvas"
           >
-            <span className="typcn typcn-th-menu"></span>
-          </button>
+            <RiMenu2Line />
+          </span>
         </div>
       </nav>
     </div>

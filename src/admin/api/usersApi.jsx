@@ -1,4 +1,6 @@
-const BASE_URL = import.meta.env.VITE_BACKEND_API; //Backend Api Url
+
+
+const BASE_URL = import.meta.env.VITE_BACKEND_API;
 
 //Get Particuler 1 User Fron User List
 export const usersApi = {
@@ -102,7 +104,7 @@ export const usersApi = {
       return data; // { message }
     } catch (err) {
       console.error("Error changing password:", err);
-      toast.error(err.message || "Error changing password");
+   
       throw err;
     }
   },

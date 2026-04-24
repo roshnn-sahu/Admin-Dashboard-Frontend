@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import Spinner from "../../ui/Spinner";
-import useGetCompany from "../../Hooks/useGetCompany";
+import Spinner from "../AdminComponents/ui/Spinner";
+import useGetCompany from "../Hooks/useGetCompany";
 
 const ForgetPassword = () => {
   const { companyDetails, isLoading } = useGetCompany();
@@ -51,7 +51,7 @@ const ForgetPassword = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(formData),
-        }
+        },
       );
       if (!res.ok) {
         const data = await res.json();
@@ -154,7 +154,7 @@ const ForgetPassword = () => {
                       </div>
                       <div className="text-center mt-4 font-weight-light">
                         Back To?{" "}
-                        <Link to="/admin/login" className="text-primary">
+                        <Link to="/admin/login" className="text-theme-primary">
                           Login
                         </Link>
                       </div>

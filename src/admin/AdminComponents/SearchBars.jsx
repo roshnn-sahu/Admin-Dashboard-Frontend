@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { usersApi } from "../../api/usersApi";
+import { usersApi } from "@/admin/api/usersApi";
 
 export const LeadListSearchBar = ({
   filters,

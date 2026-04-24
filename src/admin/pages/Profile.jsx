@@ -1,4 +1,4 @@
-import Spinner from "../../ui/Spinner";
+import Spinner from "../AdminComponents/ui/Spinner";
 import { useAuth } from "../context/AuthContext";
 const Profile = () => {
   const { userData, isLoading, isAuthenticated } = useAuth();
@@ -6,7 +6,7 @@ const Profile = () => {
   return (
     <>
       {!userData ? (
-        <h2 className="text-black-50 text-center mt-5">No data Awailable</h2>
+        <h2 className="text-black-50 text-center mt-5">No data Available</h2>
       ) : isLoading ? (
         <Spinner />
       ) : (

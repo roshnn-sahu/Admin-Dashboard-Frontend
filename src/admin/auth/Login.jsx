@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import Spinner from "../../ui/Spinner";
-import useGetCompany from "../../Hooks/useGetCompany";
+import Spinner from "../AdminComponents/ui/Spinner";
+import useGetCompany from "../Hooks/useGetCompany";
 
 const Login = () => {
   const { companyDetails, isLoading } = useGetCompany();
@@ -50,7 +50,7 @@ const Login = () => {
             "Content-type": "application/json",
           },
           body: JSON.stringify(formData),
-        }
+        },
       );
       if (!res.ok) {
         const data = await res.json();

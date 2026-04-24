@@ -27081,7 +27081,7 @@ div.tagsinput span.tag a {
 
 @media (max-width: 991px) {
   .navbar .navbar-menu-wrapper {
-    width: calc(100% - 55px);
+  flex: 1;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -27104,6 +27104,7 @@ div.tagsinput span.tag a {
   .navbar .navbar-menu-wrapper .navbar-toggler.navbar-toggler-right {
     padding-left: 15px;
     padding-right: 11px;
+    display:block;
   }
 }
 
@@ -27668,7 +27669,7 @@ div.tagsinput span.tag a {
   }
 
   .navbar .navbar-brand-wrapper {
-    width: 55px;
+    width: 100px;
   }
 
   .navbar .navbar-brand-wrapper .navbar-brand.brand-logo {

@@ -19,7 +19,7 @@ const About = () => {
                   className="profile-wrapper wow fadeInRight"
                   data-wow-delay="0.3s"
                 >
-                  <span className="text-primary fs-5 fw-semibold">
+                  <span className="text-theme-primary fs-5 fw-semibold">
                     About Us{" "}
                   </span>
                   <h3 className="text-start text-black fs-1 fw-semibold">

@@ -5,8 +5,8 @@ import {
   handleImageChange,
 } from "../../lib/FormHandler";
 import { toast } from "react-toastify";
-import useGetCompany from "../../Hooks/useGetCompany";
-import Spinner from "../../ui/Spinner";
+import useGetCompany from "../Hooks/useGetCompany";
+import Spinner from "../AdminComponents/ui/Spinner";
 
 const ManageCompany = () => {
   const { companyDetails, isLoading, getCompanyDetails } = useGetCompany();
@@ -125,7 +125,7 @@ const ManageCompany = () => {
           method: "POST",
           credentials: "include",
           body: data,
-        }
+        },
       );
       if (!res.ok) {
         toast.error("Somthing went wrong!");

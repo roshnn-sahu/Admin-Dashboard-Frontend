@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import Spinner from "../../ui/Spinner";
+import Spinner from "../AdminComponents/ui/Spinner";
 import { useDataRefresh } from "../context/DataRefreashContext";
 import {
   DeleteModal,
   AddLeadModal,
   EditLeadModal,
-} from "../AdminComponents/Models";
+} from "../AdminComponents/modals/leadModals";
 import { LeadListSearchBar } from "../AdminComponents/SearchBars";
-import { toast } from "react-toastify";
 
-import { leadsApi } from "../../api/leadsApi";
+import { leadsApi } from "../api/leadsApi";
 
 const LeadList = () => {
   const navigate = useNavigate();
@@ -85,7 +84,7 @@ const LeadList = () => {
       {loading ? (
         <Spinner color="primary" className="mx-auto" size="lg" />
       ) : !leads || leads.length == 0 ? (
-        <h2 className="text-black-50 text-center mt-5">No data Awailable</h2>
+        <h2 className="text-black-50 text-center mt-5">No data Available</h2>
       ) : (
         <div className="row">
           <div className="col-md-12">
@@ -121,7 +120,7 @@ const LeadList = () => {
                             </td>
                             <td>{lead.email_id}</td>
                             <td className="text-center">{lead.subject}</td>
-                            <td colSpan="3" className="text-primary">
+                            <td colSpan="3" className="text-theme-primary">
                               {lead.message}
                             </td>
                             <td>

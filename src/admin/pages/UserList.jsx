@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Spinner from "../../ui/Spinner";
+import Spinner from "../AdminComponents/ui/Spinner";
 import {
   AddUserModal,
   EditUserModal,
   DeleteModal,
   ChangeUserPassword,
-} from "../AdminComponents/Models";
-import { useDataRefresh } from "../context/DataRefreashContext";
-import { useAuth } from "../context/AuthContext";
-import { ShowEmail, ShowPhone } from "../../lib/ShowFunctions";
+} from "../AdminComponents/modals/userModals";
+import { useDataRefresh } from "@/admin/context/DataRefreashContext";
+import { useAuth } from "@/admin/context/AuthContext";
+import { ShowEmail, ShowPhone } from "@/lib/ShowFunctions";
 import { UserListSearchBar } from "../AdminComponents/SearchBars";
 import { toast } from "react-toastify";
 
-import { usersApi } from "../../api/usersApi";
+import { usersApi } from "@/admin/api/usersApi";
 
 const UserList = () => {
   const navigate = useNavigate();
@@ -61,9 +61,8 @@ const UserList = () => {
   const getAllUsers = async () => {
     setLoading(true);
     try {
-      const { users, totalPages, currentPage } = await usersApi.getAllUsers(
-        params
-      );
+      const { users, totalPages, currentPage } =
+        await usersApi.getAllUsers(params);
       setUsers(users);
       setTotalPages(totalPages);
       setPage(currentPage);
@@ -100,7 +99,7 @@ const UserList = () => {
       {loading ? (
         <Spinner color="primary" className="mx-auto" size="lg" />
       ) : !users || users.length === 0 ? (
-        <h2 className="text-black-50 text-center mt-5">No data Awailable</h2>
+        <h2 className="text-black-50 text-center mt-5">No data Available</h2>
       ) : (
         <div className="row">
           <div className="col-md-12">

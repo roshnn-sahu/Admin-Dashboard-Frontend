@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { RiAddCircleLine } from "@remixicon/react";
 
 const Breadcrumb = () => {
   const location = useLocation();
@@ -92,28 +93,30 @@ const Breadcrumb = () => {
           </li>
         </ul>
 
-        {/* Search Box */}
-        <ul className="navbar-nav navbar-nav-right " hidden>
-          <li className="nav-item nav-search d-none d-md-block mr-0">
-            <div className="input-group">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Search..."
-                aria-label="search"
-                aria-describedby="search"
-              />
-              <div className="input-group-prepend">
-                <span className="input-group-text" id="search">
-                  <i className="typcn typcn-zoom"></i>
-                </span>
-              </div>
-            </div>
-          </li>
-        </ul>
+      <ExternalCreateButton pathnames={pathnames} />
       </div>
     </nav>
   );
 };
 
 export default Breadcrumb;
+
+const ExternalCreateButton = ({ pathnames }) => {
+
+  return (
+<>
+   
+        {pathnames.includes("cms") && (
+          <button
+            className="btn btn-primary btn-sm bg-white text-success border-0 shadow-sm d-flex align-items-center"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#createCms"
+          >
+            <RiAddCircleLine size={14} />
+            Add New
+          </button>
+        )}
+</>
+  );
+};

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import Spinner from "../../ui/Spinner";
+import Spinner from "../AdminComponents/ui/Spinner";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { UsersActivitySearchBar } from "../AdminComponents/SearchBars";
-import { activityApi } from "../../api/activityApi";
+import { activityApi } from "../api/activityApi";
 
 const UsersActivity = () => {
   const navigate = useNavigate();
@@ -112,13 +112,13 @@ const UsersActivity = () => {
                             <td className="text-center">{val.role}</td>
                             <td className="text-center">{val.action}</td>
                             <td className="text-center">{val.action_on}</td>
-                            <td className="text-primary text-center">
+                            <td className="text-theme-primary text-center">
                               {val.browser}
                             </td>
-                            <td className="text-primary text-center">
+                            <td className="text-theme-primary text-center">
                               {val.os}
                             </td>
-                            <td className="text-primary text-center">
+                            <td className="text-theme-primary text-center">
                               {val.ip}
                             </td>
                           </tr>

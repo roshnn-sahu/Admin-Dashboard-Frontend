@@ -4,12 +4,12 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import Spinner from "../../ui/Spinner";
+import Spinner from "../AdminComponents/ui/Spinner";
 import { useAuth } from "../context/AuthContext";
 
 //fetch functions
-import { usersApi } from "../../api/usersApi";
-import { rightsApi } from "../../api/rightsApi";
+import { usersApi } from "../api/usersApi";
+import { rightsApi } from "../api/rightsApi";
 
 const ViewProfile = () => {
   const { userData } = useAuth(); //logedin User
@@ -298,7 +298,7 @@ const UserRightsTab = ({ userId }) => {
                 },
               },
             ]
-          : data.modules
+          : data.modules,
       );
     } catch (err) {
       toast.error(err.message);
@@ -377,10 +377,10 @@ const UserRightsTab = ({ userId }) => {
                     <tbody>
                       {modules.map((mod, index) => {
                         const allChecked = Object.values(mod.rights).every(
-                          Boolean
+                          Boolean,
                         );
                         const anyChecked = Object.values(mod.rights).some(
-                          Boolean
+                          Boolean,
                         );
 
                         return (

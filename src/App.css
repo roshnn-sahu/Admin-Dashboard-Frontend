@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-  --text-theme: #844fc1
+  --color-theme: #844fc1
 }
 
 html,
@@ -36,20 +36,13 @@ body {
 
 }
 
-.text-primary {
-  color: #844fc1 !important;
-}
-
-.bg-primary {
-  background-color: #844fc1 !important;
-}
 
 .text-theme {
-  color: #844fc1 !important;
+  color: var(--color-theme)!important;
 }
 
 .bg-theme {
-  background-color: #844fc1 !important;
+  background-color: var(--color-theme) !important;
 }
 
 .form-group {
@@ -95,4 +88,15 @@ table a {
 
 .nav-link {
   transition: all 0.2s ease-in-out;
+}
+
+.heading-divider {
+  background-color: var(--color-theme);
+  width: 100%;
+ 
+  font-weight: 600;
+  color: #fff;
+}
+.form-control{
+  margin-bottom: 5px !important;
 }

@@ -1,10 +1,8 @@
-import { leadsApi } from "./leadsApi";
-
-const BASE_API = import.meta.env.VITE_BACKEND_API;
+import { toast } from "react-toastify";
 
 export const activityApi = {
   getUsersActivites: async (params) => {
-try {
+    try {
       const res = await fetch(
         `${import.meta.env.VITE_BACKEND_API}/get-users-activities?${params}`,
         {
@@ -14,7 +12,8 @@ try {
       );
       const data = await res.json();
       if (!res.ok) {
-        data.redirectUrl ? navigate(data.redirectUrl) : "";
+        toast.error(data.message || "Failed to fetch activities");
+        throw new Error(data.message || "Failed to fetch activities");
       }
       return data;
     } catch (error) {
