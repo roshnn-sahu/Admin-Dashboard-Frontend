@@ -12,8 +12,8 @@ export const cmsApi = {
         },
         body: JSON.stringify(formData),
       });
-
-      return await res.json();
+      const data =  await res.json();
+      return data;
     } catch (error) {
       console.log(error);
       throw error;
@@ -23,7 +23,7 @@ export const cmsApi = {
   // GET ALL
   getCmsList: async () => {
     try {
-      const res = await fetch(`${BASE_URL}/api/pages`, {
+      const res = await fetch(`${BASE_URL}/api/cms`, {
         method: "GET",
         credentials: "include",
       });

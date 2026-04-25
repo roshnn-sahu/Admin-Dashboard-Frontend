@@ -75,17 +75,52 @@ export const CreateCmsModal = () => {
     setLoading(true);
     try {
       const res = await cmsApi.createCms(formData);
-      console.log(res);
-      toast.success("CMS created successfully");
+      if (!res.success) {
+        toast.error(res.message || "Failed to create CMS");
+        setLoading(false);
+        return;
+      }
+      toast.success(res.message || "CMS created successfully");
       setLoading(false);
+      setFormData({
+        type: null,
+        parent: null,
+        name: null,
+        title: null,
+        heading: null,
+        url: null,
+        target: null,
+        position: {
+          menu: false,
+          top_header: false,
+          footer: false,
+        },
+        order: {
+          menu: null,
+          top_header: null,
+          footer: null,
+        },
+        class: {
+          menu: null,
+          top_header: null,
+          footer: null,
+        },
+
+        content: null,
+        short_description: null,
+        meta_title: null,
+        meta_keywords: null,
+        meta_description: null,
+        styles: null,
+      });
+      document.querySelector("#createCms .btn-close")?.click();
     } catch (error) {
       console.log(error);
       toast.error("Failed to create CMS");
+    } finally {
       setLoading(false);
     }
   };
-
-  console.log(formData);
 
   return (
     <div
