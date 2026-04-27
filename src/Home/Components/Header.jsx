@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
- <>
-       <header id="header-wrap">
+    <>
+      <header id="header-wrap">
         {/* <!-- Navbar Start --> */}
         <nav className="navbar navbar-expand-lg fixed-top scrolling-navbar indigo">
           <div className="container">
@@ -35,10 +35,11 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/about">
+                  <Link className="nav-link" to="/about-us">
                     About
                   </Link>
                 </li>
+         
                 <li className="nav-item">
                   <Link className="nav-link" to="/services">
                     Services
@@ -87,11 +88,9 @@ const Header = () => {
           {/* <!-- Mobile Menu End --> */}
         </nav>
         {/* <!-- Navbar End --> */}
-
-   
       </header>
- </>
-  )
-}
+    </>
+  );
+};
 
-export default Header
+export default Header;

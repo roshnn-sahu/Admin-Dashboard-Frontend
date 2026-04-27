@@ -51,13 +51,16 @@ function App() {
       <Routes>
         <Route element={<FrontendLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Service />} />
+          {/* <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Service />} /> */}
           <Route path="/testimonial" element={<Testimonial />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/pages/:slug" element={<DynamicPage />} />
           <Route path="*" element={<Home />} />
+          {/* ✅ CMS catch-all — always last */}
+          <Route path="/:slug" element={<DynamicPage />} />
+          {/* if you have nested urls like /services/web-design */}
+          <Route path="/:slug/*" element={<DynamicPage />} />
         </Route>
         {/* Admin routes */}
 

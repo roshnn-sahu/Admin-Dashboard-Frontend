@@ -21,15 +21,16 @@ const Sidebar = () => {
     setOpenDropdown(openDropdown === dropdownName ? null : dropdownName);
   };
 
+
   const getRights = async () => {
     setLoading(true);
     try {
-      const rightsRes = await rightsApi.getRights(userData._id);
-      setUserRights(rightsRes.data.modules);
+      const rightsRes = await rightsApi.getRights(userData?._id);
+      setUserRights(rightsRes?.data?.modules);
     } catch (error) {
       console.log(error);
     } finally {
-      setLoading(true);
+      setLoading(true );
     }
   };
   useEffect(() => {

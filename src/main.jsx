@@ -5,6 +5,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 import { AuthProvider } from "./admin/context/AuthContext.jsx";
 import { DataRefreshProvider } from "./admin/context/DataRefreashContext.jsx";
+import { HelmetProvider } from "react-helmet-async";
 
 import "./App.css";
 import App from "./App.jsx";
@@ -12,12 +13,14 @@ import { BrowserRouter } from "react-router-dom";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
-      <AuthProvider>
-        <DataRefreshProvider>
-          <App />
-        </DataRefreshProvider>
-      </AuthProvider>
-    </BrowserRouter>
-      </StrictMode>
+    <HelmetProvider>
+      <BrowserRouter>
+        <AuthProvider>
+          <DataRefreshProvider>
+            <App />
+          </DataRefreshProvider>
+        </AuthProvider>
+      </BrowserRouter>
+    </HelmetProvider>
+  </StrictMode>,
 );
