@@ -12,7 +12,7 @@ export const cmsApi = {
         },
         body: JSON.stringify(formData),
       });
-      const data =  await res.json();
+      const data = await res.json();
       return data;
     } catch (error) {
       console.log(error);
@@ -38,7 +38,7 @@ export const cmsApi = {
   // GET SINGLE
   getCmsById: async (id) => {
     try {
-      const res = await fetch(`${BASE_URL}/api/pages/${id}`, {
+      const res = await fetch(`${BASE_URL}/api/cms/pages/${id}`, {
         method: "GET",
         credentials: "include",
       });
@@ -53,7 +53,7 @@ export const cmsApi = {
   // UPDATE
   updateCms: async (id, payload) => {
     try {
-      const res = await fetch(`${BASE_URL}/api/pages/${id}`, {
+      const res = await fetch(`${BASE_URL}/api/cms/pages/${id}`, {
         method: "PUT",
         credentials: "include",
         headers: {
@@ -61,8 +61,8 @@ export const cmsApi = {
         },
         body: JSON.stringify(payload),
       });
-
-      return await res.json();
+      const data = await res.json();
+      return data;
     } catch (error) {
       console.log(error);
       throw error;
@@ -72,7 +72,7 @@ export const cmsApi = {
   // DELETE
   deleteCms: async (id) => {
     try {
-      const res = await fetch(`${BASE_URL}/api/pages/${id}`, {
+      const res = await fetch(`${BASE_URL}/api/cms/pages/${id}`, {
         method: "DELETE",
         credentials: "include",
       });
@@ -83,4 +83,16 @@ export const cmsApi = {
       throw error;
     }
   },
+  getPageByUrl: async (url) => {
+    try {
+      const res = await fetch(`${BASE_URL}/api/cms/page/${url}`, {
+        method: "GET",
+        credentials: "include",
+      });
+      return await res.json();
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
 };

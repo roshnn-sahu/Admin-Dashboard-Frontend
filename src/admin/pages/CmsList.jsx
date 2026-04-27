@@ -1,23 +1,28 @@
 import React, { useEffect, useState } from "react";
 import Spinner from "../AdminComponents/ui/Spinner";
 import { cmsApi } from "../api/cmsApi";
-import { CreateCmsModal } from "../AdminComponents/modals/cmsModals";
+import {
+  CreateCmsModal,
+  DeletecCmsModal,
+  UpdateCmsModal,
+} from "../AdminComponents/modals/cmsModals";
 
 const CmsList = () => {
   const [loading, setLoading] = useState(false);
-  const [pages, setPages] = useState([]);
+  const [data, setdata] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [selectedId, setSelectedId] = useState(null);
   const limit = 10;
 
+const BASE_URL = import.meta.env.VITE_FRONTEND_API || `http://localhost:5173`;
+
+
   const fetchPages = async () => {
     try {
       setLoading(true);
       const res = await cmsApi.getCmsList({ page, limit });
-
-      // ✅ your controller returns { success, data, total, totalPages }
-      setPages(res.data.data);
+      setdata(res.data);
       setTotalPages(res.data.totalPages);
     } catch (error) {
       console.error("fetchPages error:", error);
@@ -34,114 +39,151 @@ const CmsList = () => {
   return (
     <>
       <CreateCmsModal onSuccess={fetchPages} />
+      <UpdateCmsModal onSuccess={fetchPages} id={selectedId} />
+      <DeletecCmsModal onSuccess={fetchPages} id={selectedId} />
+      {/* ✅ Spinner OUTSIDE table */}
+      {loading && (
+        <div className="text-center my-4 w-100 d-block mx-auto">
+          <Spinner color="primary" />
+        </div>
+      )}
+      {loading ? (
+        ""
+      ) : (
+        <div className="row">
+          <div className="col-md-12">
+            <div className="card">
+              <div className="table-responsive rounded-3">
+                <table className="table  border table-bordered">
+                  <thead>
+                    <tr className="table-head">
+                      <th rowspan="2" width="20">
+                        #
+                      </th>
+                      <th rowspan="2" width="20">
+                        type
+                      </th>
+                      <th rowspan="2" width="10%">
+                        parent
+                      </th>
+                      <th rowspan="2" width="15%" align="center">
+                        Name
+                      </th>
+                      <th rowspan="2" width="*15%">
+                        Title
+                      </th>
+                      <th rowspan="2" width="*">
+                        URL
+                      </th>
+                      <th colspan="3" width="15%">
+                        Position-order
+                      </th>
 
-      <div className="row">
-        <div className="col-md-12">
-          <div className="card">
-
-            {/* ✅ Spinner OUTSIDE table */}
-            {loading && (
-              <div className="text-center my-4">
-                <Spinner color="primary" />
-              </div>
-            )}
-
-            <div className="table-responsive rounded-3">
-              <table className="table table-striped border table-bordered">
-                <thead>
-                  <tr className="table-head">
-                    <th width="20">#</th>
-                    <th width="*">Name</th>
-                    <th width="*">Title</th>
-                    <th width="*">URL</th>
-                    <th width="*">Content Preview</th>
-                    <th width="30">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {!loading && pages.length === 0 && (
-                    <tr>
-                      <td colSpan="6" className="text-center py-4">
-                        No pages found.
-                      </td>
+                      <th rowspan="2" width="30">
+                        {" "}
+                        <i className="typcn typcn-th-menu"></i>{" "}
+                      </th>
                     </tr>
-                  )}
-
-                  {!loading &&
-                    pages.map((page, index) => (
-                      <tr key={page._id}>
-
-                        {/* ✅ correct serial number with pagination */}
-                        <td className="text-center">
-                          {(page - 1) * limit + index + 1}
-                        </td>
-
-                        <td><b>{page.name}</b></td>
-                        <td>{page.title || "—"}</td>
-                        <td>{page.url}</td>
-
-                        {/* ✅ safe content preview — won't crash if null */}
-                        <td className="text-muted">
-                          {page.content
-                            ? page.content.substring(0, 100) + "..."
-                            : "No content"}
-                        </td>
-
-                        <td>
-                          <div className="dropdown">
-                            <button
-                              type="button"
-                              className="btn btn-primary btn-sm dropdown-toggle"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false"
-                            />
-                            <div className="dropdown-menu">
-                              <button
-                                className="dropdown-item"
-                                data-bs-toggle="modal"
-                                data-bs-target="#editCmsModal"
-                                onClick={() => setSelectedId(page._id)} // ✅ fixed: was lead._id
-                              >
-                                <i className="typcn typcn-pen"></i> View / Edit
-                              </button>
-                              <button
-                                className="dropdown-item text-danger"
-                                data-bs-toggle="modal"
-                                data-bs-target="#deleteCmsModal"
-                                onClick={() => setSelectedId(page._id)} // ✅ fixed
-                              >
-                                <i className="typcn typcn-trash"></i> Delete
-                              </button>
-                            </div>
-                          </div>
+                    <tr>
+                      <th>MENU</th>
+                      <th>HEADER</th>
+                      <th>FOOTER</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {!loading && data.length === 0 && (
+                      <tr>
+                        <td colSpan="10" className="text-center py-4">
+                          No pages found.
                         </td>
                       </tr>
-                    ))}
-                </tbody>
-              </table>
+                    )}
 
-              {/* ✅ Pagination */}
-              <div className="d-flex justify-content-center pb-3">
-                <Pagination
-                  currentPage={page}
-                  totalPages={totalPages}
-                  onPageChange={(newPage) => {
-                    if (newPage >= 1 && newPage <= totalPages) {
-                      setPage(newPage);
-                    }
-                  }}
-                />
+                    {!loading &&
+                      data.map((page, index) => (
+                        <tr key={page._id}>
+                          {/* ✅ correct serial number with pagination */}
+                          <td className="text-center">{index + 1}</td>
+
+                          <td>{page.type}</td>
+                          <td className="text-muted text-center">
+                            <b>{page.parent ? page.parent : "—"}</b>
+                          </td>
+                          <td>{page.name || "—"}</td>
+                          <td>{page.title || "—"}</td>
+                          <td className="text-center">
+                            <a target="_blank" href={BASE_URL + page.url}>{page.url}</a>
+                          </td>
+                          <td>
+                            {page.position.menu === true ? page.order.menu : "—"}
+                          </td>
+                          <td>
+                            {page.position.top_header === true
+                              ? page.order.top_header
+                              : "—"}
+                          </td>
+                          <td>
+                            {page.position.footer === true
+                              ? page.order.footer
+                              : "—"}
+                          </td>
+
+                          <td>
+                            <div className="dropdown">
+                              <button
+                                type="button"
+                                className="btn btn-primary btn-sm dropdown-toggle"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                              />
+                              <div className="dropdown-menu">
+                                <button
+                                  className="dropdown-item"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#updateCms"
+                                  onClick={() => setSelectedId(page._id)} // ✅ fixed: was lead._id
+                                >
+                                  <i className="typcn typcn-pen"></i> View /
+                                  Edit
+                                </button>
+                                <button
+                                  className="dropdown-item text-danger"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#deleteCmsModal"
+                                  onClick={() => setSelectedId(page._id)} // ✅ fixed
+                                >
+                                  <i className="typcn typcn-trash"></i> Delete
+                                </button>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                  </tbody>
+                </table>
+
+                {/* ✅ Pagination */}
+                <div className="d-flex justify-content-center pb-3">
+                  <Pagination
+                    currentPage={page}
+                    totalPages={totalPages}
+                    onPageChange={(newPage) => {
+                      if (newPage >= 1 && newPage <= totalPages) {
+                        setPage(newPage);
+                      }
+                    }}
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 };
 
 export default CmsList;
-
 
 // ─── Pagination Component ─────────────────────────────────────────────────────
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
@@ -151,14 +193,20 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
     <ul className="pagination">
       {/* Prev */}
       <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
-        <button className="page-link" onClick={() => onPageChange(currentPage - 1)}>
+        <button
+          className="page-link"
+          onClick={() => onPageChange(currentPage - 1)}
+        >
           &laquo;
         </button>
       </li>
 
       {/* Page numbers */}
       {pages.map((num) => (
-        <li key={num} className={`page-item ${num === currentPage ? "active" : ""}`}>
+        <li
+          key={num}
+          className={`page-item ${num === currentPage ? "active" : ""}`}
+        >
           <button className="page-link" onClick={() => onPageChange(num)}>
             {num}
           </button>
@@ -166,8 +214,13 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
       ))}
 
       {/* Next */}
-      <li className={`page-item ${currentPage === totalPages ? "disabled" : ""}`}>
-        <button className="page-link" onClick={() => onPageChange(currentPage + 1)}>
+      <li
+        className={`page-item ${currentPage === totalPages ? "disabled" : ""}`}
+      >
+        <button
+          className="page-link"
+          onClick={() => onPageChange(currentPage + 1)}
+        >
           &raquo;
         </button>
       </li>
