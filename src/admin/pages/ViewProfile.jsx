@@ -101,7 +101,7 @@ const UserProfileTab = ({ userId }) => {
                           src={
                             userData.image !== null
                               ? import.meta.env.VITE_BACKEND_API +
-                                "/uploads/" +
+                                "/uploads/profile/" +
                                 userData.image
                               : "/assets/img/profile/Default_pfp.png"
                           }

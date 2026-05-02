@@ -23,7 +23,7 @@ const Profile = () => {
                           src={
                             userData && userData.image != null
                               ? import.meta.env.VITE_BACKEND_API +
-                                "/uploads/" +
+                                "/uploads/profile/" +
                                 userData.image
                               : "/public/assets/img/profile/Default_pfp.jpg"
                           }

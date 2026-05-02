@@ -61,7 +61,7 @@ const navbar = () => {
                 <img
                   src={
                     userData && userData.image
-                      ? `${import.meta.env.VITE_BACKEND_API}/uploads/${
+                      ? `${import.meta.env.VITE_BACKEND_API}/uploads/profile/${
                           userData.image
                         }?t=${Date.now()}`
                       : "/assets/img/profile/Default_pfp.png"

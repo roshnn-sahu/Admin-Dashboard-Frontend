@@ -282,7 +282,7 @@ export const EditUserModal = ({ editUserId = null, onUserUpdate }) => {
       });
       setPreview(
         user.image
-          ? `${import.meta.env.VITE_BACKEND_API}/uploads/${user.image}`
+          ? `${import.meta.env.VITE_BACKEND_API}/uploads/profile/${user.image}`
           : "/assets/img/profile/Default_pfp.png",
       );
     } catch (err) {
@@ -354,7 +354,7 @@ export const EditUserModal = ({ editUserId = null, onUserUpdate }) => {
 
     setPreview(
       initialData.image
-        ? `${import.meta.env.VITE_BACKEND_API}/uploads/${initialData.image}`
+        ? `${import.meta.env.VITE_BACKEND_API}/uploads/profile/${initialData.image}`
         : "/assets/img/profile/Default_pfp.png",
     );
   };
