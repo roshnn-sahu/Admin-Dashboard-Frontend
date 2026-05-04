@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import Spinner from "../components/ui/Spinner";
+import Spinner from "@/ui/Spinner";
 import useGetCompany from "../Hooks/useGetCompany";
+import useExternalStyles from "@/hooks/useExternalStyles";
 
 const ForgetPassword = () => {
+  useExternalStyles(["/admin/assets/styles/style.css"]);
   const { companyDetails, isLoading } = useGetCompany();
   const [cacheBust, setCacheBust] = useState("");
 

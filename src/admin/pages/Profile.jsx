@@ -1,4 +1,4 @@
-import Spinner from "../components/ui/Spinner";
+import Spinner from "@/ui/Spinner";
 import { useAuth } from "../context/AuthContext";
 const Profile = () => {
   const { userData, isLoading, isAuthenticated } = useAuth();

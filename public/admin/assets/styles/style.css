@@ -23826,20 +23826,7 @@ code {
 }
 
 /* Dropdowns */
-.dropdown .dropdown-toggle:after {
-  border-top: 0;
-  border-right: 0;
-  border-left: 0;
-  border-bottom: 0;
-  font: normal normal normal 24px/1 "typicons";
-  content: "\e01d";
-  width: auto;
-  height: auto;
-  vertical-align: middle;
-  line-height: .625rem;
-  font-size: 1.25rem;
-  margin-left: 0.312rem;
-}
+
 
 .dropdown .dropdown-menu {
   margin-top: 0;

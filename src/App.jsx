@@ -12,11 +12,11 @@ import Testimonial from "./home/components/Testimonial";
 import Portfolio from "./home/pages/Portfolio";
 import Contact from "./home/pages/Contact";
 import DynamicPage from "./Home/pages/dynamic-pages";
-import FrontendLayout from "./Home/layoutes/FrontendLayout";
+import FrontendLayout from "./Home/layouts/FrontendLayout";
 
 //admin Routes
-import AdminLayout from "./admin/layoutes/AdminLayout";
-import Dashboard from "./admin/Dashboard";
+import AdminLayout from "./admin/layouts/AdminLayout";
+import Dashboard from "./admin/pages/Dashboard";
 import Login from "./admin/auth/Login";
 import LeadList from "./admin/pages/LeadList";
 import Profile from "./admin/pages/Profile";

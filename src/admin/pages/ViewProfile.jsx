@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import Spinner from "../components/ui/Spinner";
+import Spinner from "@/ui/Spinner";
 import { useAuth } from "../context/AuthContext";
 
 //fetch functions

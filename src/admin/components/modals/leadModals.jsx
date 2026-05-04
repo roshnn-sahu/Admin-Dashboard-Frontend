@@ -1,9 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { useAuth } from "@/admin/context/AuthContext";
 
-import Spinner from "../ui/Spinner";
+import Spinner from "@/ui/Spinner";
 import { toast } from "react-toastify";
 import { useDataRefresh } from "@/admin/context/DataRefreashContext";
+import { RiFileList3Line, RiEditLine } from "@remixicon/react";
 
 import DragDropUpload from "../DragDropUpload";
 
@@ -74,7 +75,7 @@ export const AddLeadModal = () => {
       <div className="modal-dialog  modal-lg modal-dialog modal-dialog-centered">
         <div className="modal-content">
           <div className="modal-header bg-light">
-            <i className="typcn typcn-document-text menu-icon fs-5 mr-1"></i>
+            <RiFileList3Line size={20} className="me-2" />
             <h1
               className="modal-title fs-5 fw-semibold "
               id="staticBackdropLabel"
@@ -314,7 +315,7 @@ export const EditLeadModal = ({ leadId, onUpdate }) => {
       <div className="modal-dialog  modal-lg modal-dialog modal-dialog-centered">
         <div className="modal-content">
           <div className="modal-header bg-light">
-            <i className="typcn typcn-pen menu-icon fs-5 mr-1"></i>
+            <RiEditLine size={20} className="me-2" />
             <h1
               className="modal-title fs-5 fw-semibold "
               id="staticBackdropLabel"
@@ -541,7 +542,7 @@ export const FileUploadModal = () => {
       <div className="modal-dialog  modal-lg modal-dialog modal-dialog-centered">
         <div className="modal-content">
           <div className="modal-header bg-light">
-            <i className="typcn typcn-document-text menu-icon fs-5 mr-1"></i>
+            <RiFileList3Line size={20} className="me-2" />
             <h1
               className="modal-title fs-5 fw-semibold "
               id="staticBackdropLabel"

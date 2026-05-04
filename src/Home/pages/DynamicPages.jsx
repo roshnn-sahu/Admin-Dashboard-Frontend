@@ -1,7 +1,7 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom"; // ✅ added useNavigate
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { homeCmsApi } from "@/services/home/home-cms-api";
+import { homeCmsApi } from "../../services/home/home-cms-api";
 
 function DynamicPage() {
   const { slug } = useParams();

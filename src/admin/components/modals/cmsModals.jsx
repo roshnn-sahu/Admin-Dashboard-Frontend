@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
-import Spinner from "../ui/Spinner";
+import Spinner from "@/ui/Spinner";
 import { toast } from "react-toastify";
+import { RiFileList3Line } from "@remixicon/react";
 
 // handlers and utils
 
@@ -136,7 +137,7 @@ export const CreateCmsModal = ({ onSuccess }) => {
       <div className="modal-dialog  modal-xl modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div className="modal-content">
           <div className="modal-header bg-theme">
-            <i className="typcn typcn-document-text menu-icon fs-5 mr-1 text-white"></i>
+            <RiFileList3Line size={20} className="me-2 text-white" />
             <h1
               className="modal-title fs-5 fw-semibold text-white "
               id="staticBackdropLabel"
@@ -786,7 +787,7 @@ export const UpdateCmsModal = ({ id, onSuccess }) => {
       <div className="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
         <div className="modal-content">
           <div className="modal-header bg-theme">
-            <i className="typcn typcn-document-text menu-icon fs-5 mr-1 text-white"></i>
+            <RiFileList3Line size={20} className="me-2 text-white" />
             <h1
               className="modal-title fs-5 fw-semibold text-white"
               id="updateCmsLabel"

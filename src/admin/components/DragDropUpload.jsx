@@ -1,5 +1,10 @@
 import React, { useRef, useState } from "react";
-import Spinner from "./ui/Spinner";
+import {
+  RiUploadCloud2Line,
+  RiDownload2Line,
+  RiCloseLine,
+} from "@remixicon/react";
+import Spinner from "@/ui/Spinner";
 
 const MAX_FILES = 3;
 const MAX_TOTAL_SIZE = 5 * 1024 * 1024; // 5 MB
@@ -80,7 +85,7 @@ const DragDropUpload = () => {
         onClick={() => fileInputRef.current.click()}
       >
         <div className="mb-2">
-          <i className="bi bi-cloud-upload fs-1"></i>
+          <RiUploadCloud2Line size={48} className="text-secondary" />
         </div>
 
         <p className="mb-1">
@@ -114,10 +119,10 @@ const DragDropUpload = () => {
               </span>
 
               <button
-                className="btn btn-sm btn-outline-danger  "
+                className="btn btn-sm btn-outline-danger p-1"
                 onClick={() => removeFile(index)}
               >
-                ✕
+                <RiCloseLine size={18} />
               </button>
             </li>
           ))}
@@ -141,14 +146,14 @@ const DragDropUpload = () => {
                   download="file.pdf"
                   className="btn btn-warning me-2 btn-sm"
                 >
-                  <i className="typcn typcn-arrow-down-thick menu-icon"></i>
+                  <RiDownload2Line size={18} />
                 </a>
 
                 <button
-                  className="btn btn-sm btn-outline-danger  "
+                  className="btn btn-sm btn-outline-danger p-1"
                   onClick={() => setDownload(false)}
                 >
-                  ✕
+                  <RiCloseLine size={18} />
                 </button>
               </div>
             </li>

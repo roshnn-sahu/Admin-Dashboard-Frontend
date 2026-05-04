@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { RiFileList3Line, RiCloseLine } from "@remixicon/react";
 import {
   handleNumberChange,
   handleTextChange,
@@ -6,7 +7,7 @@ import {
 } from "../lib/FormHandler";
 import { toast } from "react-toastify";
 import useGetCompany from "../Hooks/useGetCompany";
-import Spinner from "../components/ui/Spinner";
+import Spinner from "@/ui/Spinner";
 
 const ManageCompany = () => {
   const { companyDetails, isLoading, getCompanyDetails } = useGetCompany();
@@ -229,7 +230,7 @@ const CompanyDetails = ({ setFormData, formData }) => {
   return (
     <>
       <div className="w-100 bg-theme   p-2 text-white fw-semibold">
-        <i className="typcn typcn-document-text menu-icon fs-5 mr-2"></i>
+        <RiFileList3Line className="menu-icon fs-5 mr-2" size={20} />
         Company Form
       </div>
 
@@ -739,13 +740,14 @@ const CompanyLogoDetails = ({
               }}
             />
             {formData.icon ? (
-              <i
-                className="typcn typcn-times-outline menu-icon fs-4 border rounded-circle px-1"
+              <RiCloseLine
+                className="menu-icon fs-4 border rounded-circle px-1 cursor-pointer"
+                size={24}
                 onClick={() => {
                   setPreview((prev) => ({ ...prev, icon: "" }));
                   setFormData((prev) => ({ ...prev, icon: "" }));
                 }}
-              ></i>
+              />
             ) : null}
           </div>
           <div className="col-md-5 text-center">
@@ -782,13 +784,14 @@ const CompanyLogoDetails = ({
               }}
             />
             {formData.logo ? (
-              <i
-                className="typcn typcn-times-outline menu-icon fs-4 border rounded-circle px-1"
+              <RiCloseLine
+                className="menu-icon fs-4 border rounded-circle px-1 cursor-pointer"
+                size={24}
                 onClick={() => {
                   setPreview((prev) => ({ ...prev, logo: "" }));
                   setFormData((prev) => ({ ...prev, logo: "" }));
                 }}
-              ></i>
+              />
             ) : null}
           </div>
           <div className="col-md-5 text-center">
@@ -828,13 +831,14 @@ const CompanyLogoDetails = ({
             />
 
             {formData.login_icon ? (
-              <i
-                className="typcn typcn-times-outline menu-icon fs-4 border rounded-circle px-1"
+              <RiCloseLine
+                className="menu-icon fs-4 border rounded-circle px-1 cursor-pointer"
+                size={24}
                 onClick={() => {
                   setPreview((prev) => ({ ...prev, login_icon: "" }));
                   setFormData((prev) => ({ ...prev, login_icon: "" }));
                 }}
-              ></i>
+              />
             ) : null}
           </div>
           <div className="col-md-5 text-center">
@@ -874,13 +878,14 @@ const CompanyLogoDetails = ({
             />
 
             {formData.login_bg ? (
-              <i
-                className="typcn typcn-times-outline menu-icon fs-4 border rounded-circle px-1"
+              <RiCloseLine
+                className="menu-icon fs-4 border rounded-circle px-1 cursor-pointer"
+                size={24}
                 onClick={() => {
                   setPreview((prev) => ({ ...prev, login_bg: "" }));
                   setFormData((prev) => ({ ...prev, login_bg: "" }));
                 }}
-              ></i>
+              />
             ) : null}
           </div>
 

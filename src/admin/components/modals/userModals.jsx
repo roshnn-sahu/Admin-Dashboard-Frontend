@@ -1,9 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { useAuth } from "@/admin/context/AuthContext";
 
-import Spinner from "../ui/Spinner";
+import Spinner from "@/ui/Spinner";
 import { toast } from "react-toastify";
 import { useDataRefresh } from "@/admin/context/DataRefreashContext";
+import { RiUserLine } from "@remixicon/react";
 
 // APIs:
 import { authApi } from "@/admin/api/authApi";
@@ -96,7 +97,7 @@ export const AddUserModal = () => {
       <div className="modal-dialog  modal-dialog-centered">
         <div className="modal-content">
           <div className="modal-header bg-light">
-            <i className="typcn typcn-user fs-5 menu-icon"></i>
+            <RiUserLine size={20} className="me-2" />
             <h1
               className="modal-title fs-5 fw-semibold"
               id="staticBackdropLabel"
@@ -373,7 +374,7 @@ export const EditUserModal = ({ editUserId = null, onUserUpdate }) => {
         <div className="modal-content">
           {/* Header */}
           <div className="modal-header bg-light">
-            <i className="typcn typcn-user fs-5 menu-icon"></i>
+            <RiUserLine size={20} className="me-2" />
             <h1 className="modal-title fs-5 fw-semibold" id="editUserLabel">
               Edit User
             </h1>

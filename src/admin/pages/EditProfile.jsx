@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
-import Spinner from "../components/ui/Spinner";
+import Spinner from "@/ui/Spinner";
 import { toast } from "react-toastify";
 import { useRef } from "react";
 import { authApi } from "../api/authApi";

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Spinner from "../components/ui/Spinner";
+import Spinner from "@/ui/Spinner";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { UsersActivitySearchBar } from "../components/SearchBars";
 import { activityApi } from "../api/activityApi";

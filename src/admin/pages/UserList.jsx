@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Spinner from "../components/ui/Spinner";
+import Spinner from "@/ui/Spinner";
 import {
   AddUserModal,
   EditUserModal,
@@ -14,6 +14,13 @@ import { ShowEmail, ShowPhone } from "@/admin/lib/ShowFunctions";
 import { UserListSearchBar } from "../components/SearchBars";
 import { toast } from "react-toastify";
 
+import {
+  RiMenuLine,
+  RiEyeLine,
+  RiEditLine,
+  RiKeyLine,
+  RiDeleteBinLine,
+} from "@remixicon/react";
 import { usersApi } from "@/admin/api/usersApi";
 
 const UserList = () => {
@@ -121,7 +128,7 @@ const UserList = () => {
                       </th>
                       <th width="40">
                         {" "}
-                        <i className="typcn typcn-th-menu "></i>{" "}
+                        <RiMenuLine size={18} />{" "}
                       </th>
                     </tr>
                   </thead>
@@ -173,7 +180,8 @@ const UserList = () => {
                                       className="dropdown-item"
                                       to={`/admin/profile/${user._id}`}
                                     >
-                                      <i className="typcn typcn-eye"></i> View
+                                      <RiEyeLine size={18} className="me-2" />{" "}
+                                      View
                                     </Link>
                                     {(userData && userData.role === "Admin") ||
                                     (userData &&
@@ -186,7 +194,11 @@ const UserList = () => {
                                         data-bs-target="#editUser"
                                         onClick={() => setEditUserId(user._id)}
                                       >
-                                        <i className="typcn typcn-pen"></i> Edit
+                                        <RiEditLine
+                                          size={18}
+                                          className="me-2"
+                                        />{" "}
+                                        Edit
                                       </Link>
                                     ) : (
                                       ""
@@ -202,7 +214,7 @@ const UserList = () => {
                                           setUserId(user._id);
                                         }}
                                       >
-                                        <i className="typcn typcn-key"></i>{" "}
+                                        <RiKeyLine size={18} className="me-2" />{" "}
                                         Change Password{" "}
                                       </a>
                                     ) : (
@@ -219,7 +231,10 @@ const UserList = () => {
                                           setUserId(user.email_id);
                                         }}
                                       >
-                                        <i className="typcn typcn-trash"></i>{" "}
+                                        <RiDeleteBinLine
+                                          size={18}
+                                          className="me-2"
+                                        />{" "}
                                         Delete{" "}
                                       </a>
                                     ) : (

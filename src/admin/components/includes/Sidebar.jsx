@@ -1,21 +1,22 @@
+import { useEffect, useState } from "react";
 import {
+  RiFileTextLine,
+  RiGlobalLine,
   RiDashboardLine,
   RiFile3Line,
   RiFileList3Line,
   RiGroupLine,
-  RiGlobalLine,
   RiBarChartLine,
   RiSettings4Line,
-  RiArrowDownSLine,
   RiArrowRightSLine,
+  RiArrowDownSLine,
 } from "@remixicon/react";
 import { NavLink, Link } from "react-router-dom";
-import { AddLeadModal, FileUploadModal } from "../components/modals/leadModals";
-import { AddUserModal } from "../components/modals/userModals";
-import useAuthCheck from "../Hooks/useAuthCheck";
-import { rightsApi } from "../api/rightsApi";
+import { AddLeadModal, FileUploadModal } from "../modals/LeadModals";
+import { AddUserModal } from "../modals/UserModals";
+import useAuthCheck from "../../Hooks/useAuthCheck";
+import { rightsApi } from "../../api/rightsApi";
 import Spinner from "@/ui/Spinner";
-import { useEffect, useState } from "react";
 
 const Sidebar = () => {
   const { userData } = useAuthCheck();
@@ -50,15 +51,15 @@ const Sidebar = () => {
       <FileUploadModal />
 
       {loading ? (
-        <nav className="sidebar sidebar-offcanvas " id="sidebar">
-          <ul className="nav border  ">
+        <nav className="sidebar sidebar-offcanvas" id="sidebar">
+          <ul className="nav">
             {/* Dashboard - Always visible */}
             <li className="nav-item border-bottom">
               <NavLink
-                to="/admin/dashboard"
-                className={`nav-link active-sidebar`}
+                to="/admin/pages/Dashboard"
+                className={`nav-link bg-light-50 active-sidebar`}
               >
-                <RiDashboardLine className="menu-icon mr-2" size={18} />
+                <RiDashboardLine className="menu-icon me-2" size={20} />
                 <span className="menu-title">Dashboard</span>
               </NavLink>
             </li>
@@ -66,24 +67,16 @@ const Sidebar = () => {
             <li className="nav-item border-bottom">
               <Link
                 onClick={() => toggleHandle("fileDropdown")}
-                className="nav-link  d-flex justify-content-between py-2"
+                className="nav-link bg-light"
                 aria-expanded={openDropdown === "fileDropdown"}
                 aria-controls="fileDropdown"
               >
-                <div>
-                  <RiFile3Line className="menu-icon mr-2" size={18} />
-                  <span className="menu-title">File</span>
-                </div>
+                <RiFile3Line className="menu-icon me-2" size={20} />
+                <span className="menu-title">File</span>
                 {openDropdown === "fileDropdown" ? (
-                  <RiArrowDownSLine
-                    className="menu-arrow float-end"
-                    size={18}
-                  />
+                  <RiArrowDownSLine className="menu-arrow ml-auto" size={18} />
                 ) : (
-                  <RiArrowRightSLine
-                    className="menu-arrow float-end"
-                    size={18}
-                  />
+                  <RiArrowRightSLine className="menu-arrow ml-auto" size={18} />
                 )}
               </Link>
 
@@ -112,18 +105,16 @@ const Sidebar = () => {
             <li className="nav-item border-bottom">
               <Link
                 onClick={() => toggleHandle("leadDropdown")}
-                className="nav-link  d-flex justify-content-between py-2"
+                className="nav-link bg-light"
                 aria-expanded={openDropdown === "leadDropdown"}
                 aria-controls="leadDropdown"
               >
-                <div>
-                  <RiFileList3Line className="menu-icon mr-2" size={18} />
-                  <span className="menu-title">Lead</span>
-                </div>
+                <RiFileList3Line className="menu-icon me-2" size={20} />
+                <span className="menu-title">Lead</span>
                 {openDropdown === "leadDropdown" ? (
-                  <RiArrowDownSLine className="menu-arrow" size={18} />
+                  <RiArrowDownSLine className="menu-arrow ml-auto" size={18} />
                 ) : (
-                  <RiArrowRightSLine className="menu-arrow" size={18} />
+                  <RiArrowRightSLine className="menu-arrow ml-auto" size={18} />
                 )}
               </Link>
 
@@ -161,18 +152,16 @@ const Sidebar = () => {
             <li className="nav-item border-bottom">
               <Link
                 onClick={() => toggleHandle("userDropdown")}
-                className="nav-link  d-flex justify-content-between py-2"
+                className="nav-link bg-light"
                 aria-expanded={openDropdown === "userDropdown"}
                 aria-controls="userDropdown"
               >
-                <div>
-                  <RiGroupLine className="menu-icon mr-2" size={18} />
-                  <span className="menu-title">Users</span>
-                </div>
+                <RiGroupLine className="menu-icon me-2" size={20} />
+                <span className="menu-title">Users</span>
                 {openDropdown === "userDropdown" ? (
-                  <RiArrowDownSLine className="menu-arrow" size={18} />
+                  <RiArrowDownSLine className="menu-arrow ml-auto" size={18} />
                 ) : (
-                  <RiArrowRightSLine className="menu-arrow" size={18} />
+                  <RiArrowRightSLine className="menu-arrow ml-auto" size={18} />
                 )}
               </Link>
 
@@ -207,22 +196,21 @@ const Sidebar = () => {
                 </ul>
               </div>
             </li>
+            {/* WEBSITE Dropdown - Show if user has any user rights */}
 
             <li className="nav-item border-bottom">
               <Link
                 onClick={() => toggleHandle("websiteDropdown")}
-                className="nav-link  d-flex justify-content-between py-2"
+                className="nav-link bg-light"
                 aria-expanded={openDropdown === "websiteDropdown"}
                 aria-controls="websiteDropdown"
               >
-                <div>
-                  <RiGlobalLine className="menu-icon mr-2" size={18} />
-                  <span className="menu-title">Website</span>
-                </div>
+                <RiGlobalLine className="menu-icon me-2" size={20} />
+                <span className="menu-title">Website</span>
                 {openDropdown === "websiteDropdown" ? (
-                  <RiArrowDownSLine className="menu-arrow" size={18} />
+                  <RiArrowDownSLine className="menu-arrow ml-auto" size={18} />
                 ) : (
-                  <RiArrowRightSLine className="menu-arrow" size={18} />
+                  <RiArrowRightSLine className="menu-arrow ml-auto" size={18} />
                 )}
               </Link>
 
@@ -251,18 +239,16 @@ const Sidebar = () => {
             <li className="nav-item border-bottom">
               <Link
                 onClick={() => toggleHandle("userActivityDropdown")}
-                className="nav-link  d-flex justify-content-between py-2"
+                className="nav-link bg-light"
                 aria-expanded={openDropdown === "userActivityDropdown"}
                 aria-controls="userActivityDropdown"
               >
-                <div>
-                  <RiBarChartLine className="menu-icon mr-2" size={18} />
-                  <span className="menu-title">Users Activity</span>
-                </div>
+                <RiBarChartLine className="menu-icon me-2" size={20} />
+                <span className="menu-title">Users Activity</span>
                 {openDropdown === "userActivityDropdown" ? (
-                  <RiArrowDownSLine className="menu-arrow" size={18} />
+                  <RiArrowDownSLine className="menu-arrow ml-auto" size={18} />
                 ) : (
-                  <RiArrowRightSLine className="menu-arrow" size={18} />
+                  <RiArrowRightSLine className="menu-arrow ml-auto" size={18} />
                 )}
               </Link>
 
@@ -290,18 +276,16 @@ const Sidebar = () => {
               <li className="nav-item border-bottom">
                 <Link
                   onClick={() => toggleHandle("settingDropdown")}
-                  className="nav-link  d-flex justify-content-between py-2"
+                  className="nav-link bg-light "
                   aria-expanded={openDropdown === "settingDropdown"}
                   aria-controls="settingDropdown"
                 >
-                  <div>
-                    <RiSettings4Line className="menu-icon mr-2" size={18} />
-                    <span className="menu-title ">Settings</span>
-                  </div>
+                  <RiSettings4Line className="menu-icon me-2" size={20} />
+                  <span className="menu-title ">Settings</span>
                   {openDropdown === "settingDropdown" ? (
-                    <RiArrowDownSLine className="menu-arrow" size={18} />
+                    <RiArrowDownSLine className="menu-arrow ml-auto" size={18} />
                   ) : (
-                    <RiArrowRightSLine className="menu-arrow" size={18} />
+                    <RiArrowRightSLine className="menu-arrow ml-auto" size={18} />
                   )}
                 </Link>
 

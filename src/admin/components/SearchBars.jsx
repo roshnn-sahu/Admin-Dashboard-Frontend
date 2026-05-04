@@ -2,6 +2,11 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { usersApi } from "@/admin/api/usersApi";
+import {
+  RiSearchLine,
+  RiRefreshLine,
+  RiDownloadLine,
+} from "@remixicon/react";
 
 export const LeadListSearchBar = ({
   filters,
@@ -77,7 +82,7 @@ export const LeadListSearchBar = ({
             className=" btn btn-primary bg-primay btn-sm "
           >
             <span>
-              <i className="typcn typcn-zoom text-white"></i>
+              <RiSearchLine className="text-white" size={18} />
             </span>
           </button>
 
@@ -87,13 +92,13 @@ export const LeadListSearchBar = ({
             onClick={clearQuery}
           >
             <span>
-              <i className="typcn typcn-arrow-sync text-white"></i>
+              <RiRefreshLine className="text-white" size={18} />
             </span>
           </button>
 
           <button className=" btn btn-success btn-sm  " type="button">
             <span>
-              <i className="typcn typcn-export-outline  text-white"></i>
+              <RiDownloadLine className="text-white" size={18} />
             </span>
           </button>
         </div>
@@ -246,7 +251,7 @@ export const UserListSearchBar = ({
         <div className="d-flex gap-1 align-items-start">
           <button type="submit" className=" btn btn-primary bg-primay btn-sm ">
             <span>
-              <i className="typcn typcn-zoom text-white"></i>
+              <RiSearchLine className="text-white" size={18} />
             </span>
           </button>
 
@@ -256,12 +261,12 @@ export const UserListSearchBar = ({
             type="button"
           >
             <span>
-              <i className="typcn typcn-arrow-sync text-white"></i>
+              <RiRefreshLine className="text-white" size={18} />
             </span>
           </button>
           <button className=" btn btn-success btn-sm  " type="button">
             <span>
-              <i className="typcn typcn-export-outline  text-white"></i>
+              <RiDownloadLine className="text-white" size={18} />
             </span>
           </button>
         </div>
@@ -407,7 +412,7 @@ export const UsersActivitySearchBar = ({
         <div className="d-flex gap-1 align-items-start">
           <button type="submit" className=" btn btn-primary bg-primay btn-sm ">
             <span>
-              <i className="typcn typcn-zoom text-white"></i>
+              <RiSearchLine className="text-white" size={18} />
             </span>
           </button>
 
@@ -417,12 +422,12 @@ export const UsersActivitySearchBar = ({
             type="button"
           >
             <span>
-              <i className="typcn typcn-arrow-sync text-white"></i>
+              <RiRefreshLine className="text-white" size={18} />
             </span>
           </button>
           <button className=" btn btn-success btn-sm  " type="button">
             <span>
-              <i className="typcn typcn-export-outline  text-white"></i>
+              <RiDownloadLine className="text-white" size={18} />
             </span>
           </button>
         </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import logo from "/admin/assets/images/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -10,7 +10,7 @@ import {
   RiUserLine,
   RiEditLine,
   RiKeyLine,
-  RiLogoutBoxRLine,
+  RiLogoutBoxLine,
   RiCalendarLine,
   RiSettings4Line,
   RiNotification3Line,
@@ -46,12 +46,12 @@ const navbar = () => {
       <nav className="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div className="navbar-brand-wrapper d-flex justify-content-center">
           <div className="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
-            <Link className="navbar-brand brand-logo" to="/admin/dashboard">
+            <Link className="navbar-brand brand-logo" to="/admin/pages/Dashboard">
               <img src={logo} alt="logo" />
             </Link>
             <Link
               className="navbar-brand brand-logo-mini"
-              to="/admin/dashboard"
+              to="/admin/pages/Dashboard"
             >
               <img src="/public/admin/assets/images/logo-mini.svg" alt="logo" />
             </Link>
@@ -99,19 +99,19 @@ const navbar = () => {
                 aria-labelledby="profileDropdown"
               >
                 <Link to="/admin/profile" className="dropdown-item">
-                  <RiUserLine size={18} className="me-2 text-theme-primary" />
+                  <RiUserLine className="text-theme-primary me-2" size={18} />
                   Profile
                 </Link>
                 <Link to="/admin/edit/profile" className="dropdown-item">
-                  <RiEditLine size={18} className="me-2 text-theme-primary" />
+                  <RiEditLine className="text-theme-primary me-2" size={18} />
                   Edit Profile
                 </Link>
                 <Link to="/admin/change-password" className="dropdown-item">
-                  <RiKeyLine size={18} className="me-2 text-theme-primary" />
+                  <RiKeyLine className="text-theme-primary me-2" size={18} />
                   Change Password
                 </Link>
                 <Link className="dropdown-item" onClick={handleLogOut}>
-                  <RiLogoutBoxRLine size={18} className="me-2 text-theme-primary" />
+                  <RiLogoutBoxLine className="text-theme-primary me-2" size={18} />
                   Logout
                 </Link>
               </div>
@@ -127,7 +127,7 @@ const navbar = () => {
                 <h6 className="date mb-0">
                   Today : {new Date().toDateString()}
                 </h6>
-                <RiCalendarLine size={18} className="ms-2 " />
+                <RiCalendarLine className="ms-2" size={18} />
               </Link>
             </li>
             <li className="nav-item dropdown">
@@ -137,7 +137,7 @@ const navbar = () => {
                 to="#"
                 data-toggle="dropdown"
               >
-                <RiSettings4Line  className="mx-0" />
+                <RiSettings4Line className="mx-0" size={20} />
                 <span className="count"></span>
               </Link>
               <div
@@ -208,7 +208,7 @@ const navbar = () => {
                 to="#"
                 data-toggle="dropdown"
               >
-                <RiNotification3Line size={20} className="mx-0" />
+                <RiNotification3Line className="mx-0" size={20} />
                 <span className="count"></span>
               </Link>
               <div
@@ -221,7 +221,7 @@ const navbar = () => {
                 <Link className="dropdown-item preview-item">
                   <div className="preview-thumbnail">
                     <div className="preview-icon bg-success">
-                      <RiInformationLine size={18} className="mx-0 text-white" />
+                      <RiInformationLine className="mx-0 text-white" size={18} />
                     </div>
                   </div>
                   <div className="preview-item-content">
@@ -236,7 +236,7 @@ const navbar = () => {
                 <Link className="dropdown-item preview-item">
                   <div className="preview-thumbnail">
                     <div className="preview-icon bg-warning">
-                      <RiSettings4Line size={18} className="mx-0 text-white" />
+                      <RiSettings4Line className="mx-0 text-white" size={18} />
                     </div>
                   </div>
                   <div className="preview-item-content">
@@ -251,7 +251,7 @@ const navbar = () => {
                 <Link className="dropdown-item preview-item">
                   <div className="preview-thumbnail">
                     <div className="preview-icon bg-info">
-                      <RiUserLine size={18} className="mx-0 text-white" />
+                      <RiUserLine className="mx-0 text-white" size={18} />
                     </div>
                   </div>
                   <div className="preview-item-content">

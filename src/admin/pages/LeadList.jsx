@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import Spinner from "../components/ui/Spinner";
+import Spinner from "@/ui/Spinner";
 import { useDataRefresh } from "../context/DataRefreashContext";
 import {
   DeleteModal,
@@ -10,6 +10,7 @@ import {
 } from "../components/modals/leadModals";
 import { LeadListSearchBar } from "../components/SearchBars";
 
+import { RiMenuLine, RiEditLine, RiDeleteBinLine } from "@remixicon/react";
 import { leadsApi } from "../api/leadsApi";
 
 const LeadList = () => {
@@ -102,7 +103,7 @@ const LeadList = () => {
                       <th colSpan="3">Message </th>
                       <th width="30">
                         {" "}
-                        <i className="typcn typcn-th-menu"></i>{" "}
+                        <RiMenuLine size={18} />{" "}
                       </th>
                     </tr>
                   </thead>
@@ -146,8 +147,8 @@ const LeadList = () => {
                                       data-bs-target="#editLead"
                                       onClick={(e) => setLeadId(lead._id)}
                                     >
-                                      <i className="typcn typcn-pen"></i> View /
-                                      Edit
+                                      <RiEditLine size={18} className="me-2" />{" "}
+                                      View / Edit
                                     </a>
                                     <a
                                       className="dropdown-item text-danger"
@@ -158,7 +159,10 @@ const LeadList = () => {
                                         setLeadId(lead._id);
                                       }}
                                     >
-                                      <i className="typcn typcn-trash"></i>{" "}
+                                      <RiDeleteBinLine
+                                        size={18}
+                                        className="me-2"
+                                      />{" "}
                                       Delete{" "}
                                     </a>
                                   </div>

@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import Spinner from "../components/ui/Spinner";
+import Spinner from "@/ui/Spinner";
 import useGetCompany from "../Hooks/useGetCompany";
+import useExternalStyles from "@/hooks/useExternalStyles";
 
 const Login = () => {
+  useExternalStyles(["/admin/assets/styles/style.css"]);
   const { companyDetails, isLoading } = useGetCompany();
   const [cacheBust, setCacheBust] = useState("");
   const navigate = useNavigate();
