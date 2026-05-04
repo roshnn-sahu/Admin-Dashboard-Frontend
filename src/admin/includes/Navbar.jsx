@@ -20,6 +20,21 @@ import {
 const navbar = () => {
   const navigate = useNavigate();
   const { userData, isLoading, isAuthenticated } = useAuth();
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isMessagesOpen, setIsMessagesOpen] = useState(false);
+  const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
+
+  useEffect(() => {
+    const closeDropdowns = (e) => {
+      if (!e.target.closest(".nav-item.dropdown")) {
+        setIsProfileOpen(false);
+        setIsMessagesOpen(false);
+        setIsNotificationsOpen(false);
+      }
+    };
+    window.addEventListener("click", closeDropdowns);
+    return () => window.removeEventListener("click", closeDropdowns);
+  }, []);
   const handleLogOut = async () => {
     try {
       const res = await fetch(
@@ -60,12 +75,21 @@ const navbar = () => {
         <div className="navbar-menu-wrapper d-flex align-items-center justify-content-end">
           {/* User Profile */}
           <ul className="navbar-nav mr-lg-2 profile-dropdown">
-            <li className="nav-item nav-profile dropdown">
+            <li
+              className={`nav-item nav-profile dropdown ${
+                isProfileOpen ? "show" : ""
+              }`}
+            >
               <Link
-                className="nav-link  rounded-3"
+                className="nav-link rounded-3"
                 to="#"
-                data-toggle="dropdown"
                 id="profileDropdown"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsProfileOpen(!isProfileOpen);
+                  setIsMessagesOpen(false);
+                  setIsNotificationsOpen(false);
+                }}
               >
                 <img
                   src={
@@ -80,9 +104,14 @@ const navbar = () => {
                 />
               </Link>
               <div
-                className="d-flex flex-column justify-content-center lh-1  cursor-auto"
-                data-toggle="dropdown"
+                className="d-flex flex-column justify-content-center lh-1 cursor-auto"
                 id="profileDropdown"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsProfileOpen(!isProfileOpen);
+                  setIsMessagesOpen(false);
+                  setIsNotificationsOpen(false);
+                }}
               >
                 <span className="nav-profile-name fs-5 fw-bold ml-2 p-0">
                   {userData ? userData.name : "User Name"}
@@ -95,7 +124,9 @@ const navbar = () => {
                 </p>
               </div>
               <div
-                className="dropdown-menu dropdown-menu-right navbar-dropdown  "
+                className={`dropdown-menu dropdown-menu-right navbar-dropdown ${
+                  isProfileOpen ? "show" : ""
+                }`}
                 aria-labelledby="profileDropdown"
               >
                 <Link to="/admin/profile" className="dropdown-item">
@@ -130,18 +161,25 @@ const navbar = () => {
                 <RiCalendarLine size={18} className="ms-2 " />
               </Link>
             </li>
-            <li className="nav-item dropdown">
+            <li className={`nav-item dropdown ${isMessagesOpen ? "show" : ""}`}>
               <Link
                 className="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center"
                 id="messageDropdown"
                 to="#"
-                data-toggle="dropdown"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsMessagesOpen(!isMessagesOpen);
+                  setIsProfileOpen(false);
+                  setIsNotificationsOpen(false);
+                }}
               >
-                <RiSettings4Line  className="mx-0" />
+                <RiSettings4Line className="mx-0" />
                 <span className="count"></span>
               </Link>
               <div
-                className="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                className={`dropdown-menu dropdown-menu-right navbar-dropdown preview-list ${
+                  isMessagesOpen ? "show" : ""
+                }`}
                 aria-labelledby="messageDropdown"
               >
                 <p className="mb-0 font-weight-normal float-left dropdown-header">
@@ -201,18 +239,29 @@ const navbar = () => {
                 </Link>
               </div>
             </li>
-            <li className="nav-item dropdown mr-0">
+            <li
+              className={`nav-item dropdown mr-0 ${
+                isNotificationsOpen ? "show" : ""
+              }`}
+            >
               <Link
                 className="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center"
                 id="notificationDropdown"
                 to="#"
-                data-toggle="dropdown"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsNotificationsOpen(!isNotificationsOpen);
+                  setIsProfileOpen(false);
+                  setIsMessagesOpen(false);
+                }}
               >
                 <RiNotification3Line size={20} className="mx-0" />
                 <span className="count"></span>
               </Link>
               <div
-                className="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                className={`dropdown-menu dropdown-menu-right navbar-dropdown preview-list ${
+                  isNotificationsOpen ? "show" : ""
+                }`}
                 aria-labelledby="notificationDropdown"
               >
                 <p className="mb-0 font-weight-normal float-left dropdown-header">
