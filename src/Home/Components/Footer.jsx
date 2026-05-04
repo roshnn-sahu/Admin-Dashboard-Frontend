@@ -1,4 +1,11 @@
 import React from "react";
+import { Globe, ArrowUp } from "lucide-react";
+import {
+  RiFacebookCircleLine,
+  RiInstagramLine,
+  RiLinkedinBoxLine,
+  RiTwitterXLine,
+} from "@remixicon/react";
 
 const Footer = () => {
   return (
@@ -19,27 +26,27 @@ const Footer = () => {
               <ul className="social-icon  pl-0">
                 <li>
                   <a className="facebook" href="#">
-                    <i className="icon-social-facebook"></i>
+                    <RiFacebookCircleLine size={18} />
                   </a>
                 </li>
                 <li>
                   <a className="twitter" href="#">
-                    <i className="icon-social-twitter"></i>
+                    <RiTwitterXLine size={18} />
                   </a>
                 </li>
                 <li>
                   <a className="instagram" href="#">
-                    <i className="icon-social-instagram"></i>
+                    <RiInstagramLine size={18} />
                   </a>
                 </li>
                 <li>
                   <a className="instagram" href="#">
-                    <i className="icon-social-linkedin"></i>
+                    <RiLinkedinBoxLine size={18} />
                   </a>
                 </li>
                 <li>
                   <a className="instagram" href="#">
-                    <i className="icon-social-google"></i>
+                    <Globe size={18} />
                   </a>
                 </li>
               </ul>
@@ -116,7 +123,9 @@ const Footer = () => {
                   className=" border-0 outline-0 px-2 py-2 rounded-3 col-lg-6 col-md-6 col-6 "
                   placeholder="Subscribe"
                 />
-                <button className="btn btn-primary col-lg-4 col-md-2 col-3">Submit</button>
+                <button className="btn btn-primary col-lg-4 col-md-2 col-3">
+                  Submit
+                </button>
               </div>
             </div>
           </div>
@@ -136,7 +145,7 @@ const Footer = () => {
 
       {/* <!-- Go to Top Link --> */}
       <a href="#" className="back-to-top">
-        <i className="icon-arrow-up"></i>
+        <ArrowUp className="mx-auto mt-2" size={24} />
       </a>
     </>
   );

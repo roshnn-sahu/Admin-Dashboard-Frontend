@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Spinner from "../AdminComponents/ui/Spinner";
+import Spinner from "../components/ui/Spinner";
 import {
   AddUserModal,
   EditUserModal,
   DeleteModal,
   ChangeUserPassword,
-} from "../AdminComponents/modals/userModals";
+} from "../components/modals/userModals";
 import { useDataRefresh } from "@/admin/context/DataRefreashContext";
 import { useAuth } from "@/admin/context/AuthContext";
-import { ShowEmail, ShowPhone } from "@/lib/ShowFunctions";
-import { UserListSearchBar } from "../AdminComponents/SearchBars";
+import { ShowEmail, ShowPhone } from "@/admin/lib/ShowFunctions";
+import { UserListSearchBar } from "../components/SearchBars";
 import { toast } from "react-toastify";
 
 import { usersApi } from "@/admin/api/usersApi";

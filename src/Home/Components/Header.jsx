@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Menu } from "lucide-react";
 
 const Header = () => {
   return (
@@ -19,9 +20,7 @@ const Header = () => {
                 aria-label="Toggle navigation"
               >
                 <span className="navbar-toggler-icon"></span>
-                <span className="icon-menu"></span>
-                <span className="icon-menu"></span>
-                <span className="icon-menu"></span>
+                <Menu size={20} />
               </button>
               <Link to="/" className="navbar-brand">
                 <img src="assets/img/logo.png" alt="" />

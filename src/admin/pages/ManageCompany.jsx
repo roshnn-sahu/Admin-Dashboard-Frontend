@@ -3,10 +3,10 @@ import {
   handleNumberChange,
   handleTextChange,
   handleImageChange,
-} from "../../lib/FormHandler";
+} from "../lib/FormHandler";
 import { toast } from "react-toastify";
 import useGetCompany from "../Hooks/useGetCompany";
-import Spinner from "../AdminComponents/ui/Spinner";
+import Spinner from "../components/ui/Spinner";
 
 const ManageCompany = () => {
   const { companyDetails, isLoading, getCompanyDetails } = useGetCompany();

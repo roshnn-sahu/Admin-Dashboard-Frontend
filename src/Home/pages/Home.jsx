@@ -1,10 +1,18 @@
-import Cta from "../Components/Cta";
-import Counter from "../Components/Counter";
+import React from "react";
+import Cta from "../components/Cta";
+import Counter from "../components/Counter";
 
-import Testimonial from "../Components/Testimonial";
+import Testimonial from "../components/Testimonial";
 import Portfolio from "./Portfolio";
 import Service from "./Service";
 import About from "./About";
+import { Globe, MapPin, Mail, Phone } from "lucide-react";
+import {
+  RiFacebookCircleLine,
+  RiInstagramLine,
+  RiLinkedinBoxLine,
+  RiTwitterXLine,
+} from "@remixicon/react";
 
 const Home = () => {
   return (
@@ -27,27 +35,27 @@ const Home = () => {
                 <ul className="social-icon wow fadeInUp" data-wow-delay="0.8s">
                   <li>
                     <a className="facebook" href="#">
-                      <i className="icon-social-facebook"></i>
+                      <RiFacebookCircleLine size={20} />
                     </a>
                   </li>
                   <li>
                     <a className="twitter" href="#">
-                      <i className="icon-social-twitter"></i>
+                      <RiTwitterXLine size={20} />
                     </a>
                   </li>
                   <li>
                     <a className="instagram" href="#">
-                      <i className="icon-social-instagram"></i>
+                      <RiInstagramLine size={20} />
                     </a>
                   </li>
                   <li>
                     <a className="linkedin" href="#">
-                      <i className="icon-social-linkedin"></i>
+                      <RiLinkedinBoxLine size={20} />
                     </a>
                   </li>
                   <li>
                     <a className="google" href="#">
-                      <i className="icon-social-google"></i>
+                      <Globe size={20} />
                     </a>
                   </li>
                 </ul>
@@ -175,13 +183,13 @@ const Home = () => {
                   <div className="footer-right-contact">
                     <div className="single-contact">
                       <div className="contact-icon">
-                        <i className="fa fa-map-marker"></i>
+                        <MapPin size={24} />
                       </div>
                       <p>San Francisco, CA</p>
                     </div>
                     <div className="single-contact">
                       <div className="contact-icon">
-                        <i className="fa fa-envelope"></i>
+                        <Mail size={24} />
                       </div>
                       <p>
                         <a href="mailto:hello@tom.com">hello@tom.com</a>
@@ -194,7 +202,7 @@ const Home = () => {
                     </div>
                     <div className="single-contact">
                       <div className="contact-icon">
-                        <i className="fa fa-phone"></i>
+                        <Phone size={24} />
                       </div>
                       <p>
                         <a href="#">+ (00) 123 456 789</a>

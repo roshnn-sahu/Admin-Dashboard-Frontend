@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { MapPin, Mail, Phone } from "lucide-react";
+
 const Contact = () => {
   const [loading, setLoading] = useState(false);
 
@@ -169,13 +171,13 @@ console.log(formData)
                   <div className="footer-right-contact">
                     <div className="single-contact">
                       <div className="contact-icon">
-                        <i className="fa fa-map-marker"></i>
+                        <MapPin size={24} />
                       </div>
                       <p>San Francisco, CA</p>
                     </div>
                     <div className="single-contact">
                       <div className="contact-icon">
-                        <i className="fa fa-envelope"></i>
+                        <Mail size={24} />
                       </div>
                       <p>
                         <a href="mailto:hello@tom.com">hello@tom.com</a>
@@ -188,7 +190,7 @@ console.log(formData)
                     </div>
                     <div className="single-contact">
                       <div className="contact-icon">
-                        <i className="fa fa-phone"></i>
+                        <Phone size={24} />
                       </div>
                       <p>
                         <a href="#">+ (00) 123 456 789</a>

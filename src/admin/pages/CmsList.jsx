@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Spinner from "../AdminComponents/ui/Spinner";
+import Spinner from "../components/ui/Spinner";
 import { cmsApi } from "../api/cmsApi";
 import {
   CreateCmsModal,
   DeletecCmsModal,
   UpdateCmsModal,
-} from "../AdminComponents/modals/cmsModals";
+} from "../components/modals/cmsModals";
 
 const CmsList = () => {
   const [loading, setLoading] = useState(false);
@@ -15,8 +15,7 @@ const CmsList = () => {
   const [selectedId, setSelectedId] = useState(null);
   const limit = 10;
 
-const BASE_URL = import.meta.env.VITE_FRONTEND_API || `http://localhost:5173`;
-
+  const BASE_URL = import.meta.env.VITE_FRONTEND_API || `http://localhost:5173`;
 
   const fetchPages = async () => {
     try {
@@ -112,10 +111,14 @@ const BASE_URL = import.meta.env.VITE_FRONTEND_API || `http://localhost:5173`;
                           <td>{page.name || "—"}</td>
                           <td>{page.title || "—"}</td>
                           <td className="text-center">
-                            <a target="_blank" href={BASE_URL + page.url}>{page.url}</a>
+                            <a target="_blank" href={BASE_URL + page.url}>
+                              {page.url}
+                            </a>
                           </td>
                           <td>
-                            {page.position.menu === true ? page.order.menu : "—"}
+                            {page.position.menu === true
+                              ? page.order.menu
+                              : "—"}
                           </td>
                           <td>
                             {page.position.top_header === true

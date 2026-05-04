@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
-import Spinner from "../AdminComponents/ui/Spinner";
+import Spinner from "../components/ui/Spinner";
 import { useNavigate } from "react-router-dom";
 
 const ChangePassword = () => {
@@ -38,7 +38,7 @@ const ChangePassword = () => {
           },
           credentials: "include",
           body: JSON.stringify(formData),
-        }
+        },
       );
       if (!res.ok) {
         const data = await res.json();
@@ -51,7 +51,7 @@ const ChangePassword = () => {
           oldPassword: "",
           newPassword: "",
           confirmPassword: "",
-        })
+        });
       }
 
       setLoading(false);
@@ -91,7 +91,7 @@ const ChangePassword = () => {
                     placeholder="New Password"
                     required
                     onChange={handleChange}
-                     value={formData.newPassword}
+                    value={formData.newPassword}
                   />
                 </div>
                 <div className="form-group">
@@ -106,7 +106,7 @@ const ChangePassword = () => {
                     placeholder="Confirm Password"
                     required
                     onChange={handleChange}
-                     value={formData.confirmPassword}
+                    value={formData.confirmPassword}
                   />
                 </div>
 

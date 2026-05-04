@@ -1,14 +1,11 @@
 import { useEffect, useState } from "react";
 import { RiFileTextLine, RiGlobalLine } from "@remixicon/react";
 import { NavLink, Link } from "react-router-dom";
-import {
-  AddLeadModal,
-  FileUploadModal,
-} from "../AdminComponents/modals/leadModals";
-import { AddUserModal } from "../AdminComponents/modals/userModals";
+import { AddLeadModal, FileUploadModal } from "../components/modals/leadModals";
+import { AddUserModal } from "../components/modals/userModals";
 import useAuthCheck from "../Hooks/useAuthCheck";
 import { rightsApi } from "../api/rightsApi";
-import Spinner from "../AdminComponents/ui/Spinner";
+import Spinner from "../components/ui/Spinner";
 
 const Sidebar = () => {
   const { userData } = useAuthCheck();
@@ -21,7 +18,6 @@ const Sidebar = () => {
     setOpenDropdown(openDropdown === dropdownName ? null : dropdownName);
   };
 
-
   const getRights = async () => {
     setLoading(true);
     try {
@@ -30,7 +26,7 @@ const Sidebar = () => {
     } catch (error) {
       console.log(error);
     } finally {
-      setLoading(true );
+      setLoading(true);
     }
   };
   useEffect(() => {

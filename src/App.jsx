@@ -8,17 +8,17 @@ import "react-toastify/dist/ReactToastify.css";
 import Home from "./home/pages/Home";
 import About from "./home/pages/About";
 import Service from "./home/pages/Service";
-import Testimonial from "./home/Components/Testimonial";
+import Testimonial from "./home/components/Testimonial";
 import Portfolio from "./home/pages/Portfolio";
 import Contact from "./home/pages/Contact";
 import DynamicPage from "./Home/pages/dynamic-pages";
+import FrontendLayout from "./Home/layoutes/FrontendLayout";
 
 //admin Routes
-import AdminDashboard from "./admin/AdminDashboard";
+import AdminLayout from "./admin/layoutes/AdminLayout";
+import Dashboard from "./admin/Dashboard";
 import Login from "./admin/auth/Login";
 import LeadList from "./admin/pages/LeadList";
-import FrontendLayout from "./layoutes/FrontendLayout";
-import AdminLayout from "./layoutes/AdminLayout";
 import Profile from "./admin/pages/Profile";
 import EditProfile from "./admin/pages/EditProfile";
 import ChangePassword from "./admin/pages/changePassword";
@@ -68,8 +68,8 @@ function App() {
         <Route path="/admin/forget-password" element={<ForgetPassword />} />
 
         <Route element={<AdminLayout />}>
-          <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin" element={<Dashboard />} />
+          <Route path="/admin/dashboard" element={<Dashboard />} />
           <Route path="/admin/profile" element={<Profile />} />
           <Route path="/admin/profile/:id" element={<ViewProfile />} />
           <Route path="/admin/rights/:id" element={<ViewProfile />} />

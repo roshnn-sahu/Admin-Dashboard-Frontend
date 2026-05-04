@@ -3,8 +3,8 @@ import { createRoot } from "react-dom/client";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
-import { AuthProvider } from "./admin/context/AuthContext.jsx";
-import { DataRefreshProvider } from "./admin/context/DataRefreashContext.jsx";
+import { AuthProvider } from "./admin/context/AuthContext";
+import { DataRefreshProvider } from "./admin/context/DataRefreashContext";
 import { HelmetProvider } from "react-helmet-async";
 
 import "./App.css";

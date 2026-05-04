@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import Spinner from "../AdminComponents/ui/Spinner";
+import Spinner from "../components/ui/Spinner";
 import { useDataRefresh } from "../context/DataRefreashContext";
 import {
   DeleteModal,
   AddLeadModal,
   EditLeadModal,
-} from "../AdminComponents/modals/leadModals";
-import { LeadListSearchBar } from "../AdminComponents/SearchBars";
+} from "../components/modals/leadModals";
+import { LeadListSearchBar } from "../components/SearchBars";
 
 import { leadsApi } from "../api/leadsApi";
 

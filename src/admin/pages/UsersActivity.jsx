@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Spinner from "../AdminComponents/ui/Spinner";
+import Spinner from "../components/ui/Spinner";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { UsersActivitySearchBar } from "../AdminComponents/SearchBars";
+import { UsersActivitySearchBar } from "../components/SearchBars";
 import { activityApi } from "../api/activityApi";
 
 const UsersActivity = () => {
