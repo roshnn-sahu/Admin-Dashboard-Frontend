@@ -7,7 +7,10 @@ import { X } from "lucide-react";
 import useExternalStyles from "@/hooks/useExternalStyles";
 
 const AdminLayout = ({ userData }) => {
-  useExternalStyles(["/admin/assets/styles/style.css"]);
+  useExternalStyles([
+    "https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css",
+    "/admin/assets/styles/style.css",
+  ]);
   return (
     <>
       <div className="row d-none" id="proBanner">
