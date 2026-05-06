@@ -7,7 +7,7 @@ import {
 } from "../lib/FormHandler";
 import { toast } from "react-toastify";
 import useGetCompany from "../Hooks/useGetCompany";
-import Spinner from "@/ui/Spinner";
+import Spinner from "@/shared/ui/Spinner";
 
 const ManageCompany = () => {
   const { companyDetails, isLoading, getCompanyDetails } = useGetCompany();
@@ -20,6 +20,7 @@ const ManageCompany = () => {
     login_icon: null,
     login_bg: null,
   });
+
   const [formData, setFormData] = useState({
     name: "",
     display_name: "",
@@ -81,29 +82,23 @@ const ManageCompany = () => {
       setPreview({
         logo:
           companyDetails.images.logo != null
-            ? BASE_URL +
-              "/uploads/" +
-              companyDetails.images.logo +
-              `?t=${Date.now()}`
+            ? BASE_URL +companyDetails.images.logo +`?t=${Date.now()}`
             : null,
         icon:
           companyDetails.images.icon != null
-            ? BASE_URL +
-              "/uploads/" +
+            ? BASE_URL  +
               companyDetails.images.icon +
               `?t=${Date.now()}`
             : null,
         login_icon:
           companyDetails.images.login_icon != null
-            ? BASE_URL +
-              "/uploads/" +
+            ? BASE_URL  +
               companyDetails.images.login_icon +
               `?t=${Date.now()}`
             : null,
         login_bg:
           companyDetails.images.login_bg != null
-            ? BASE_URL +
-              "/uploads/" +
+            ? BASE_URL  +
               companyDetails.images.login_bg +
               `?t=${Date.now()}`
             : null,
@@ -226,6 +221,7 @@ const ManageCompany = () => {
 };
 
 export default ManageCompany;
+
 const CompanyDetails = ({ setFormData, formData }) => {
   return (
     <>

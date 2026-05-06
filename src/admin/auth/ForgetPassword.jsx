@@ -2,12 +2,15 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import Spinner from "@/ui/Spinner";
+import Spinner from "@/shared/ui/Spinner";
 import useGetCompany from "../Hooks/useGetCompany";
-import useExternalStyles from "@/hooks/useExternalStyles";
+import useExternalStyles from "@/shared/hooks/useExternalStyles";
+
+const ADMIN_STYLES = ["/admin/assets/styles/style.css"];
 
 const ForgetPassword = () => {
-  useExternalStyles(["/admin/assets/styles/style.css"]);
+  useExternalStyles(ADMIN_STYLES);
+
   const { companyDetails, isLoading } = useGetCompany();
   const [cacheBust, setCacheBust] = useState("");
 
@@ -21,14 +24,12 @@ const ForgetPassword = () => {
   const login_icon =
     companyDetails && companyDetails.images.login_icon != null
       ? import.meta.env.VITE_BACKEND_API +
-        "/uploads/" +
         companyDetails.images.login_icon +
         `${cacheBust}`
       : "/admin/assets/images/logo-dark.svg";
   const login_bg =
     companyDetails && companyDetails.images.login_bg != null
-      ? import.meta.env.VITE_BACKEND_API +
-        "/uploads/" +
+      ? import.meta.env.VITE_BACKEND_API  +
         companyDetails.images.login_bg +
         `${cacheBust}`
       : null;
@@ -166,9 +167,9 @@ const ForgetPassword = () => {
               </div>
             </div>
           </div>
-          {/* <!-- content-wrapper ends --> */}
+   
         </div>
-        {/* <!-- page-body-wrapper ends --> */}
+        
       </div>
     </>
   );

@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
-import useExternalStyles from "@/hooks/useExternalStyles";
+import useExternalStyles from "@/shared/hooks/useExternalStyles.js";
 
 const FrontendLayout = () => {
   useExternalStyles([

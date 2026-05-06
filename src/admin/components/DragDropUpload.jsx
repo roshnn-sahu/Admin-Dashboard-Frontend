@@ -4,7 +4,7 @@ import {
   RiDownload2Line,
   RiCloseLine,
 } from "@remixicon/react";
-import Spinner from "@/ui/Spinner";
+import Spinner from "@/shared/ui/Spinner";
 
 const MAX_FILES = 3;
 const MAX_TOTAL_SIZE = 5 * 1024 * 1024; // 5 MB
@@ -135,7 +135,9 @@ const DragDropUpload = () => {
 
       {download == true ? (
         <div className="w-100">
-          <h3 className="fs-6 text-theme fw-semibold text-center">Your File Is Ready</h3>
+          <h3 className="fs-6 text-theme fw-semibold text-center">
+            Your File Is Ready
+          </h3>
           <ul className="list-group mt-3">
             <li className="list-group-item d-flex justify-content-between align-items-center border">
               <span>File.pdf</span>

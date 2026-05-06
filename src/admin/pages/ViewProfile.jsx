@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import Spinner from "@/ui/Spinner";
+import Spinner from "@/shared/ui/Spinner";
 import { useAuth } from "../context/AuthContext";
 
 //fetch functions
@@ -101,7 +101,6 @@ const UserProfileTab = ({ userId }) => {
                           src={
                             userData.image !== null
                               ? import.meta.env.VITE_BACKEND_API +
-                                "/uploads/profile/" +
                                 userData.image
                               : "/assets/img/profile/Default_pfp.png"
                           }

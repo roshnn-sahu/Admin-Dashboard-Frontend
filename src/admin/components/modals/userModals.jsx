@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useAuth } from "@/admin/context/AuthContext";
 
-import Spinner from "@/ui/Spinner";
+import Spinner from "@/shared/ui/Spinner";
 import { toast } from "react-toastify";
 import { useDataRefresh } from "@/admin/context/DataRefreashContext";
 import { RiUserLine } from "@remixicon/react";
@@ -283,7 +283,7 @@ export const EditUserModal = ({ editUserId = null, onUserUpdate }) => {
       });
       setPreview(
         user.image
-          ? `${import.meta.env.VITE_BACKEND_API}/uploads/profile/${user.image}`
+          ? `${import.meta.env.VITE_BACKEND_API}${user.image}`
           : "/assets/img/profile/Default_pfp.png",
       );
     } catch (err) {
@@ -355,7 +355,7 @@ export const EditUserModal = ({ editUserId = null, onUserUpdate }) => {
 
     setPreview(
       initialData.image
-        ? `${import.meta.env.VITE_BACKEND_API}/uploads/profile/${initialData.image}`
+        ? `${import.meta.env.VITE_BACKEND_API}${initialData.image}`
         : "/assets/img/profile/Default_pfp.png",
     );
   };
@@ -399,7 +399,6 @@ export const EditUserModal = ({ editUserId = null, onUserUpdate }) => {
                         preview
                           ? preview
                           : import.meta.env.VITE_BACKEND_API +
-                            "/uploads/" +
                             formData.image
                       }
                       alt="Profile"

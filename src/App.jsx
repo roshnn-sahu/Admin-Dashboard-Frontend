@@ -30,6 +30,7 @@ import ManageCompany from "./admin/pages/ManageCompany";
 import UsersActivity from "./admin/pages/UsersActivity";
 import PageNotFound from "./admin/pages/PageNotFound";
 import Cms from "./admin/pages/CmsList";
+import SQL from "./admin/pages/SQL";
 
 function App() {
   return (
@@ -80,6 +81,7 @@ function App() {
           <Route path="/admin/settings" element={<ManageCompany />} />
           <Route path="/admin/users-activity" element={<UsersActivity />} />
           <Route path="/admin/website/cms" element={<Cms />} />
+          <Route path="/admin/sql" element={<SQL />} />
 
           <Route path="admin/*" element={<PageNotFound />} />
         </Route>

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useAuth } from "@/admin/context/AuthContext";
 
-import Spinner from "@/ui/Spinner";
+import Spinner from "@/shared/ui/Spinner";
 import { toast } from "react-toastify";
 import { useDataRefresh } from "@/admin/context/DataRefreashContext";
 import { RiFileList3Line, RiEditLine } from "@remixicon/react";

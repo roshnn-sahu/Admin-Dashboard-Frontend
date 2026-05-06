@@ -14,7 +14,7 @@ import { AddLeadModal, FileUploadModal } from "../components/modals/leadModals";
 import { AddUserModal } from "../components/modals/userModals";
 import useAuthCheck from "../Hooks/useAuthCheck";
 import { rightsApi } from "../api/rightsApi";
-import Spinner from "@/ui/Spinner";
+import Spinner from "@/shared/ui/Spinner";
 import { useEffect, useState } from "react";
 
 const Sidebar = () => {
@@ -61,6 +61,44 @@ const Sidebar = () => {
                 <RiDashboardLine className="menu-icon mr-2" size={18} />
                 <span className="menu-title">Dashboard</span>
               </NavLink>
+            </li>
+
+            <li className="nav-item border-bottom">
+              <Link
+                onClick={() => toggleHandle("SQLDropdown")}
+                className="nav-link  d-flex justify-content-between py-2"
+                aria-expanded={openDropdown === "SQLDropdown"}
+                aria-controls="SQLDropdown"
+              >
+                <div>
+                  <RiFile3Line className="menu-icon mr-2" size={18} />
+                  <span className="menu-title">SQL</span>
+                </div>
+                {openDropdown === "SQLDropdown" ? (
+                  <RiArrowDownSLine
+                    className="menu-arrow float-end"
+                    size={18}
+                  />
+                ) : (
+                  <RiArrowRightSLine
+                    className="menu-arrow float-end"
+                    size={18}
+                  />
+                )}
+              </Link>
+
+              <div
+                className={`sub-menu-wrapper ${
+                  openDropdown === "SQLDropdown" ? "show" : "hide"
+                }`}
+                id="SQLDropdown"
+              >
+                <ul className="nav flex-column sub-menu">
+                  <li className="nav-item border-bottom">
+                    <Link to="/admin/sql">Add SQL File</Link>
+                  </li>
+                </ul>
+              </div>
             </li>
 
             <li className="nav-item border-bottom">

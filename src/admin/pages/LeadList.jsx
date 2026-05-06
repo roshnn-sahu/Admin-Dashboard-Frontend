@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import Spinner from "@/ui/Spinner";
+import Spinner from "@/shared/ui/Spinner";
 import { useDataRefresh } from "../context/DataRefreashContext";
 import {
   DeleteModal,
@@ -131,17 +131,15 @@ const LeadList = () => {
                                     type="button"
                                     className="btn btn-primary btn-sm dropdown-toggle"
                                     id="dropdownMenuIconButton3"
-                                    data-toggle="dropdown"
-                                    aria-haspopup="true"
+                                    data-bs-toggle="dropdown"
                                     aria-expanded="false"
                                   ></button>
                                   <div
                                     className="dropdown-menu"
                                     aria-labelledby="dropdownMenuIconButton3"
                                   >
-                                    <a
+                                    <button
                                       className="dropdown-item"
-                                      href="#"
                                       type="button"
                                       data-bs-toggle="modal"
                                       data-bs-target="#editLead"
@@ -149,8 +147,8 @@ const LeadList = () => {
                                     >
                                       <RiEditLine size={18} className="me-2" />{" "}
                                       View / Edit
-                                    </a>
-                                    <a
+                                    </button>
+                                    <button
                                       className="dropdown-item text-danger"
                                       type="button"
                                       data-bs-toggle="modal"
@@ -164,7 +162,7 @@ const LeadList = () => {
                                         className="me-2"
                                       />{" "}
                                       Delete{" "}
-                                    </a>
+                                    </button>
                                   </div>
                                 </div>
                               </div>

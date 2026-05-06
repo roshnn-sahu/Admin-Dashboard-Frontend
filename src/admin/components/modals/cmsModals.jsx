@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import Spinner from "@/ui/Spinner";
+import Spinner from "@/shared/ui/Spinner";
 import { toast } from "react-toastify";
 import { RiFileList3Line } from "@remixicon/react";
 
@@ -710,8 +710,8 @@ export const UpdateCmsModal = ({ id, onSuccess }) => {
           meta_keywords: data.meta_keywords || "",
           meta_description: data.meta_description || "",
           styles: data.styles || "",
-          thumbnail: null, // don't prefill file inputs
-          breadcrumb: null,
+          thumbnail: data.thumbnail, // don't prefill file inputs
+          breadcrumb: data.breadcrumb,
         });
 
         // ✅ show existing images in preview

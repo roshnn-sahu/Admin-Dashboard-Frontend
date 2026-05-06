@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Spinner from "@/ui/Spinner";
+import Spinner from "@/shared/ui/Spinner";
 import {
   AddUserModal,
   EditUserModal,
@@ -168,8 +168,7 @@ const UserList = () => {
                                     type="button"
                                     className="btn btn-primary btn-sm dropdown-toggle"
                                     id="dropdownMenuIconButton3"
-                                    data-toggle="dropdown"
-                                    aria-haspopup="true"
+                                    data-bs-toggle="dropdown"
                                     aria-expanded="false"
                                   ></button>
                                   <div
@@ -186,9 +185,8 @@ const UserList = () => {
                                     {(userData && userData.role === "Admin") ||
                                     (userData &&
                                       userData.role === "Super Admin") ? (
-                                      <Link
+<button
                                         className="dropdown-item"
-                                        href="#"
                                         type="button"
                                         data-bs-toggle="modal"
                                         data-bs-target="#editUser"
@@ -199,13 +197,13 @@ const UserList = () => {
                                           className="me-2"
                                         />{" "}
                                         Edit
-                                      </Link>
+                                      </button>
                                     ) : (
                                       ""
                                     )}
                                     {userData &&
                                     userData.role === "Super Admin" ? (
-                                      <a
+<button
                                         className="dropdown-item text-danger"
                                         type="button"
                                         data-bs-toggle="modal"
@@ -216,13 +214,13 @@ const UserList = () => {
                                       >
                                         <RiKeyLine size={18} className="me-2" />{" "}
                                         Change Password{" "}
-                                      </a>
+                                      </button>
                                     ) : (
                                       ""
                                     )}
                                     {userData &&
                                     userData.role === "Super Admin" ? (
-                                      <a
+<button
                                         className="dropdown-item text-danger"
                                         type="button"
                                         data-bs-toggle="modal"
@@ -236,7 +234,7 @@ const UserList = () => {
                                           className="me-2"
                                         />{" "}
                                         Delete{" "}
-                                      </a>
+                                      </button>
                                     ) : (
                                       ""
                                     )}

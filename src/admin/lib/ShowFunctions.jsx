@@ -1,4 +1,4 @@
-import Spinner from "@/ui/Spinner";
+import Spinner from "@/shared/ui/Spinner";
 
 export const ShowPhone = ({ mobile }) => {
   if (!mobile) return <Spinner />;

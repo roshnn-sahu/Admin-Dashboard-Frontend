@@ -1,10 +1,13 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
 import Navbar from "../includes/Navbar";
 import Sidebar from "../includes/Sidebar";
 import Breadcrumb from "../includes/Breadcrumb";
 import { Outlet } from "react-router-dom";
 import Footer from "../includes/Footer";
 import { X } from "lucide-react";
-import useExternalStyles from "@/hooks/useExternalStyles";
+import useExternalStyles from "@/shared/hooks/useExternalStyles";
 
 const AdminLayout = ({ userData }) => {
   useExternalStyles([

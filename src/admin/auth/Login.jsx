@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import Spinner from "@/ui/Spinner";
+import Spinner from "@/shared/ui/Spinner";
 import useGetCompany from "../Hooks/useGetCompany";
-import useExternalStyles from "@/hooks/useExternalStyles";
+import useExternalStyles from "@/shared/hooks/useExternalStyles";
+
+const ADMIN_STYLES = ["/admin/assets/styles/style.css"];
 
 const Login = () => {
-  useExternalStyles(["/admin/assets/styles/style.css"]);
+  useExternalStyles(ADMIN_STYLES);
+
   const { companyDetails, isLoading } = useGetCompany();
-  const [cacheBust, setCacheBust] = useState("");
   const navigate = useNavigate();
+  const [cacheBust, setCacheBust] = useState("");
   const [loading, setLoading] = useState(false);
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -18,17 +22,12 @@ const Login = () => {
 
   const login_icon =
     companyDetails && companyDetails.images.login_icon != null
-      ? import.meta.env.VITE_BACKEND_API +
-        "/uploads/" +
-        companyDetails.images.login_icon +
-        `${cacheBust}`
+      ? `${import.meta.env.VITE_BACKEND_API}${companyDetails.images.login_icon}${cacheBust}`
       : "/admin/assets/images/logo-dark.svg";
+
   const login_bg =
     companyDetails && companyDetails.images.login_bg != null
-      ? import.meta.env.VITE_BACKEND_API +
-        "/uploads/" +
-        companyDetails.images.login_bg +
-        `${cacheBust}`
+      ? `${import.meta.env.VITE_BACKEND_API}${companyDetails.images.login_bg}${cacheBust}`
       : null;
 
   const handleChange = (e) => {
@@ -133,13 +132,7 @@ const Login = () => {
                         {loading ? <Spinner /> : "Login"}
                       </button>
                     </div>
-                    <div className="my-2 d-flex justify-content-between align-items-center">
-                      <div className="form-check">
-                        <input type="checkbox" className="form-check-input" />
-                        <label className="form-check-label text-muted pl-0 ml-0">
-                          Keep me signed in
-                        </label>
-                      </div>
+                    <div className="mt-4 d-flex justify-content-center align-items-center">
                       <Link
                         to="/admin/forget-password"
                         className="auth-link text-black"

@@ -2,7 +2,7 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 import useAuthCheck from "./useAuthCheck";
-import Spinner from "@/ui/Spinner";
+import Spinner from "@/shared/ui/Spinner";
 
 const ProtectedRoutes = ({ children }) => {
   const { isAuthenticated, isLoading } = useAuthCheck();

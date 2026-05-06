@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
-import Spinner from "@/ui/Spinner";
+import Spinner from "@/shared/ui/Spinner";
 import { toast } from "react-toastify";
 import { useRef } from "react";
 import { authApi } from "../api/authApi";
@@ -15,7 +15,7 @@ const EditProfile = () => {
   });
   const [profilePreview, setProfilePreview] = useState(
     userData && userData.image != null
-      ? import.meta.env.VITE_BACKEND_API + "/uploads/" + userData.image
+      ? import.meta.env.VITE_BACKEND_API+ userData.image
       : "/assets/img/profile/Default_pfp.png",
   );
   const handleChange = (e) => {
@@ -71,7 +71,6 @@ const EditProfile = () => {
                           profilePreview
                             ? profilePreview
                             : import.meta.env.VITE_BACKEND_API +
-                              "/uploads/" +
                               userData.image
                         }
                         alt="profile-img"

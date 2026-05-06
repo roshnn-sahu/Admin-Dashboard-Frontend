@@ -1,4 +1,4 @@
-import Spinner from "@/ui/Spinner";
+import Spinner from "@/shared/ui/Spinner";
 import { useAuth } from "../context/AuthContext";
 const Profile = () => {
   const { userData, isLoading, isAuthenticated } = useAuth();
@@ -22,8 +22,7 @@ const Profile = () => {
                         <img
                           src={
                             userData && userData.image != null
-                              ? import.meta.env.VITE_BACKEND_API +
-                                "/uploads/profile/" +
+                              ? import.meta.env.VITE_BACKEND_API  +
                                 userData.image
                               : "/public/assets/img/profile/Default_pfp.jpg"
                           }

@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Spinner from "@/ui/Spinner";
+import Spinner from "@/shared/ui/Spinner";
 import { cmsApi } from "../api/cmsApi";
 import {
   CreateCmsModal,
   DeletecCmsModal,
   UpdateCmsModal,
 } from "../components/modals/cmsModals";
-import {
-  RiMenuLine,
-  RiEditLine,
-  RiDeleteBinLine,
-} from "@remixicon/react";
+import { RiMenuLine, RiEditLine, RiDeleteBinLine } from "@remixicon/react";
 
 const CmsList = () => {
   const [loading, setLoading] = useState(false);
@@ -151,8 +147,8 @@ const CmsList = () => {
                                   data-bs-target="#updateCms"
                                   onClick={() => setSelectedId(page._id)} // ✅ fixed: was lead._id
                                 >
-                                  <RiEditLine size={18} className="me-2" /> View /
-                                  Edit
+                                  <RiEditLine size={18} className="me-2" /> View
+                                  / Edit
                                 </button>
                                 <button
                                   className="dropdown-item text-danger"
@@ -160,7 +156,8 @@ const CmsList = () => {
                                   data-bs-target="#deleteCmsModal"
                                   onClick={() => setSelectedId(page._id)} // ✅ fixed
                                 >
-                                  <RiDeleteBinLine size={18} className="me-2" /> Delete
+                                  <RiDeleteBinLine size={18} className="me-2" />{" "}
+                                  Delete
                                 </button>
                               </div>
                             </div>
