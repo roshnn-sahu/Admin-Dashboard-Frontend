@@ -9429,6 +9429,11 @@ p {
   margin-top: 0;
   margin-bottom: 1rem;
 }
+a{
+  text-decoration: none;
+  cursor: pointer;
+  color:#333 !important;
+}
 
 abbr[title],
 abbr[data-original-title] {
@@ -21309,7 +21314,7 @@ html {
 }
 
 .container-scroller {
-  overflow: hidden;
+  /* overflow: hidden removed — it breaks position: sticky on sidebar */
 }
 
 pre {
@@ -26661,6 +26666,10 @@ div.tagsinput span.tag a {
   display: flex;
   -webkit-flex-direction: row;
   flex-direction: row;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+  -webkit-align-content: flex-start;
+  align-content: flex-start;
   padding-left: 0;
   padding-right: 0;
   padding-top: 1rem;
@@ -26709,7 +26718,10 @@ div.tagsinput span.tag a {
 
 /* Sidebar */
 .sidebar {
-  min-height: calc(100vh - 4.625rem);
+  position: sticky;
+  top: 0;
+  height: calc(100vh - 7.5rem);
+  overflow-y: auto;
   background: #ffffff;
   font-family: "Poppins", sans-serif;
   font-weight: normal;
@@ -26728,6 +26740,7 @@ div.tagsinput span.tag a {
   margin-bottom: 2.062rem;
   border-radius: 6px;
   border: 1px solid #e4e4f4;
+  align-self: flex-start;
 }
 
 .sidebar .nav {
@@ -26980,6 +26993,14 @@ div.tagsinput span.tag a {
 
   .sidebar-offcanvas.active {
     right: 0;
+  }
+}
+
+/* Ensure sidebar remains sticky on scroll */
+@media screen and (max-width: 991px) {
+  .sidebar {
+    top: 4.625rem;
+    height: calc(100vh - 4.625rem - 1rem);
   }
 }
 

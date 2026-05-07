@@ -26,7 +26,7 @@ const AdminLayout = ({ userData }) => {
         <Navbar userData={userData} />
         {/* <!-- partial --> */}
         <Breadcrumb />
-        <div className="container-fluid page-body-wrapper ">
+        <div className="container-fluid page-body-wrapper position-relative">
           <Sidebar />
           <div className="main-panel  py-2 rounded-3  ml-3 pe-3 mb-3">
             {/* <!-- partial:partials/_sidebar.html --> */}

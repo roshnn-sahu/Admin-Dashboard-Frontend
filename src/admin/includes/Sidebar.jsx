@@ -36,7 +36,7 @@ const Sidebar = () => {
     } catch (error) {
       console.log(error);
     } finally {
-      setLoading(true);
+      setLoading(false);
     }
   };
   useEffect(() => {
@@ -49,8 +49,8 @@ const Sidebar = () => {
       <AddUserModal />
       <FileUploadModal />
 
-      {loading ? (
-        <nav className="sidebar sidebar-offcanvas " id="sidebar">
+      {!loading ? (
+        <nav className="sidebar sidebar-offcanvas" id="sidebar">
           <ul className="nav border  ">
             {/* Dashboard - Always visible */}
             <li className="nav-item border-bottom">
@@ -365,7 +365,9 @@ const Sidebar = () => {
           </ul>
         </nav>
       ) : (
-        <Spinner />
+        <div className="sidebar vh-100 d-flex align-items-center justify-content-center">
+          <Spinner />
+        </div>
       )}
     </>
   );
